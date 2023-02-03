@@ -14,9 +14,8 @@ public class ClickableDoor : MonoBehaviour {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-
     private void OnMouseDown() {
-    
+        //CHECK: sorting order when open and closed
         if(!Input.GetMouseButtonDown(0)) { return; }
         if(spriteRenderer.sprite == open) {
             spriteRenderer.sprite = close;
