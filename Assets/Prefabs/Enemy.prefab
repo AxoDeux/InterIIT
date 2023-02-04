@@ -293,7 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e5e479f04c4113b0c1e537d9642e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRewinding: 0
 --- !u!114 &476425932006711874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,3 +305,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1f14615c5180843a02409e5e499700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCircle: {fileID: 3649361039260657572}

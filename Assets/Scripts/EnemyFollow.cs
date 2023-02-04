@@ -13,14 +13,16 @@ public class EnemyFollow : MonoBehaviour
     private Vector2 lookDir;
     private float angle;    //to point at player
 
-    private void Awake() {
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
     {
-        FollowPlayer();
+        if (!GameManager.isRewinding)
+            FollowPlayer();
     }
 
     private void FollowPlayer()
