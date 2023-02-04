@@ -663,6 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a040e48117404039bf023d729971a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunSprite: {fileID: 968662719}
 --- !u!4 &1446781559
 Transform:
   m_ObjectHideFlags: 0

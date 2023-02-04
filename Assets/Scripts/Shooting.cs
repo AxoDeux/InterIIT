@@ -18,8 +18,16 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
-        GameManager.SetColor(gunSprite);
+        SetBulletGunColor();
+        //GameManager.SetColor(bulletPrefab.GetComponent<SpriteRenderer>());
     }
+
+    private void SetBulletGunColor()
+    {
+        Color clr = GameManager.SetColor(gunSprite);
+        bulletPrefab.GetComponentInChildren<SpriteRenderer>().color = clr;
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -34,7 +42,9 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponentInChildren<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         //change gun color on shoot
-        GameManager.SetColor(gunSprite);
+        SetBulletGunColor();
+        //GameManager.SetColor(gunSprite);
     }
+
 
 }

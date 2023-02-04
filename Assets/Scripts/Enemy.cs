@@ -6,14 +6,17 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField]
     SpriteRenderer enemyCircle;
+
+
     public void Start()
     {
         GameManager.SetColor(enemyCircle);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log($"Bullet color {GameManager.Instance.getGunColor()}, Enemy color = {enemyCircle.color}");
-        if (collision.gameObject.CompareTag("Bullet") && (enemyCircle.color == GameManager.Instance.getGunColor()))
+        //Debug.Log(collision.gameObject.name);
+        Debug.Log("Enemy circle color " + enemyCircle.color + ", bullet color" + collision.gameObject.GetComponentInChildren<SpriteRenderer>().color);
+        if (collision.gameObject.CompareTag("Bullet") && (enemyCircle.color == collision.gameObject.GetComponentInChildren<SpriteRenderer>().color))
         {
             //check bullet type and then destroy
             Destroy(collision.gameObject);

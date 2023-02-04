@@ -55,9 +55,9 @@ public class GameManager : MonoBehaviour
         return sprite.color;
     }
 
-    public Color getGunColor()
-    {
-        Debug.Log("GUN COLOR IS " + gunSprite.color);
-        return gunSprite.color;
-    }
+    //public Color getGunColor()
+    //{
+    //    Debug.Log("GUN COLOR IS " + gunSprite.color);
+    //    return gunSprite.color;
+    //}
 }
