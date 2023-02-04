@@ -15,6 +15,9 @@ public class Collectible : MonoBehaviour
                 case InventoryManager.Items.timeCell:
                     InventoryManager.Instance.OnCollectTimeCell();
                     break;
+                case InventoryManager.Items.weaponUpgrade:
+                    InventoryManager.Instance.OnCollectAdvancedWeapon();
+                    break;
             }
             gameObject.SetActive(false);
         }

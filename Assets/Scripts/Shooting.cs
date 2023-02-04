@@ -19,6 +19,14 @@ public class Shooting : MonoBehaviour
 
     float currTime = 0;
     float minTime = 0.2f;
+    private Vector2 mousePos;
+    private Vector2 shootDir;
+
+    private Camera cam;
+
+    private void Awake() {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
     private void Start()
     {
@@ -37,8 +45,9 @@ public class Shooting : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             //if(EventSystem.current.IsPointerOverGameObject()) { return; }
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             if(currTime>minTime) {
-            Shoot();
+                Shoot();
                 currTime = 0;
             } else {
                 currTime += Time.deltaTime;
@@ -50,7 +59,8 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponentInChildren<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        shootDir = mousePos - new Vector2(firePoint.position.x, firePoint.position.y);
+        rb.AddForce(shootDir.normalized * bulletForce, ForceMode2D.Impulse);
         //change gun color on shoot
         SetBulletGunColor();
         //GameManager.SetColor(gunSprite);

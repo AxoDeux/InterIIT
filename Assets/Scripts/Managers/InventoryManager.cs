@@ -41,6 +41,10 @@ public class InventoryManager : MonoBehaviour
         t_timeCell.text = timeCellCount.ToString();
     }
 
+    public void OnCollectAdvancedWeapon() {
+        //activate dual guns
+    }
+
     public void OnClickTimeCell() {
         //subtract time cells or energybar
         t_timeCell.text = timeCellCount.ToString();
