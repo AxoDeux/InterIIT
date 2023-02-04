@@ -10,10 +10,10 @@ public class TimeBody : MonoBehaviour
 
 
 
-    List<Vector3> positions;
+    List<TimeStamp> positions;
     private void Start()
     {
-        positions = new List<Vector3>();
+        positions = new List<TimeStamp>();
     }
     void Update()
     {
@@ -39,17 +39,16 @@ public class TimeBody : MonoBehaviour
     void Rewind()
     {
         //if (positions[0] != null)
-        transform.position = positions[0];
-        if (positions.Count > 0)
-        {
-            positions.RemoveAt(0);
-        }
-        else StopRewind();
+        if (positions.Count == 0) return;
+        transform.position = positions[0].position;
+        transform.rotation = positions[0].rotation;
+        positions.RemoveAt(0);
+        //else StopRewind();
     }
     void Record()
     {
         //inserting positions from the top position of the enemies
-        positions.Insert(0, transform.position);
+        positions.Insert(0, new TimeStamp(transform.position, transform.rotation));
     }
 
     public void StopRewind()
