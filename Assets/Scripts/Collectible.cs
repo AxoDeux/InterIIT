@@ -10,11 +10,11 @@ public class Collectible : MonoBehaviour
         if(collision.CompareTag("Player")) {
             switch(itemType) {
                 case InventoryManager.Items.coins:
-                    //update coins
-                    Debug.Log("Coin Collected");
                     InventoryManager.Instance.OnCollectCoin();
                     break;
-
+                case InventoryManager.Items.timeCell:
+                    InventoryManager.Instance.OnCollectTimeCell();
+                    break;
             }
             gameObject.SetActive(false);
         }

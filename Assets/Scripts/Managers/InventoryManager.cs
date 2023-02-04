@@ -20,7 +20,6 @@ public class InventoryManager : MonoBehaviour
         coins,
     };
 
-
     private void Awake() {
         if(Instance!=null && Instance != this) {
             Destroy(this);
@@ -35,6 +34,11 @@ public class InventoryManager : MonoBehaviour
     public void OnCollectCoin() {
         coinCount++;
         t_coins.text = coinCount.ToString();
+    }
+
+    public void OnCollectTimeCell() {
+        timeCellCount++;
+        t_timeCell.text = timeCellCount.ToString();
     }
 
     public void OnClickTimeCell() {

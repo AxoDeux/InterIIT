@@ -25,8 +25,17 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 2f;
 
-    private void Awake() {
+    private float tmpSpeed;
+    private float infectedSpeed = 2.5f;
 
+    private void Start() {
+        tmpSpeed = speed;
+    }
+    private void OnEnable() {
+        ToxicZone.PlayerEnterToxicZoneEvent += HandleToxicZoneEffect;
+    }
+    private void OnDisable() {
+        ToxicZone.PlayerEnterToxicZoneEvent -= HandleToxicZoneEffect;
     }
 
     void Update()
@@ -69,4 +78,17 @@ public class PlayerMovement : MonoBehaviour
 
         canDash = true;
     }
+
+    public void HandleToxicZoneEffect(bool isInToxicZone) {   //changing speed variable because its used in update methods
+        if(isInToxicZone) {
+            speed = infectedSpeed;
+            Debug.Log(speed);
+            //deal damage
+        } else {
+            speed = tmpSpeed;
+            Debug.Log(speed);
+
+        }
+    }
+
 }
