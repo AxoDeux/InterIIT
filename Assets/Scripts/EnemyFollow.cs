@@ -9,10 +9,15 @@ public class EnemyFollow : MonoBehaviour
     public Transform target;
     public float stoppingDistance;
 
-    void Start()
-    {
+    private Rigidbody2D rb;
+    private Vector2 lookDir;
+    private float angle;    //to point at player
+
+    private void Awake() {
+        rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
+
     void Update()
     {
         FollowPlayer();
@@ -22,5 +27,9 @@ public class EnemyFollow : MonoBehaviour
     {
         if (Vector2.Distance(target.position, transform.position) > stoppingDistance)
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        lookDir = target.position - transform.position;
+        angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+        rb.rotation = angle;
     }
 }
