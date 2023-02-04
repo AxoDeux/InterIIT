@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    SpriteRenderer enemyCircle;
+    public SpriteRenderer enemyCircle;
 
 
     public void Start()

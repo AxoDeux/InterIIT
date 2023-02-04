@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Shooting : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     SpriteRenderer gunSprite;
 
+    float currTime = 0;
+    float minTime = 0.2f;
+
     private void Start()
     {
         SetBulletGunColor();
@@ -30,9 +34,15 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
+            //if(EventSystem.current.IsPointerOverGameObject()) { return; }
+            if(currTime>minTime) {
             Shoot();
+                currTime = 0;
+            } else {
+                currTime += Time.deltaTime;
+            }
         }
     }
 

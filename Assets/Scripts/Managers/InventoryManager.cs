@@ -7,27 +7,18 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance { get; private set; }       //singleton
 
-    [SerializeField] private TMP_Text t_waterBalloon;
-    [SerializeField] private TMP_Text t_horn;
-    [SerializeField] private TMP_Text t_stone;
+    [SerializeField] private TMP_Text t_timeCell;
     [SerializeField] private TMP_Text t_coins;
 
-    private int waterBalloonCount;
-    private int hornCount;
-    private int stoneCount;
+    private int timeCellCount;
     private int coinCount;
-    private bool isVeggieBagBought;
 
     public enum Items {
         none,
-        waterBalloon,
-        horn,
-        stone,
+        weaponUpgrade,
+        timeCell,
         coins,
-        veggieBag
     };
-
-    private Items activeItem;
 
 
     private void Awake() {
@@ -37,13 +28,8 @@ public class InventoryManager : MonoBehaviour
             Instance = this;
         }
 
-        waterBalloonCount = 1;
-        hornCount = 1;
-        stoneCount = 1;
-        coinCount = 1;
-        isVeggieBagBought = false;
-
-        activeItem = Items.none;
+        timeCellCount = 0;
+        coinCount = 0;
     }
 
     public void OnCollectCoin() {
@@ -51,53 +37,15 @@ public class InventoryManager : MonoBehaviour
         t_coins.text = coinCount.ToString();
     }
 
-    public void OnClickWaterBalloon() {
-        activeItem = Items.waterBalloon;
-        Debug.Log(activeItem);
-        waterBalloonCount--;
-        t_waterBalloon.text = waterBalloonCount.ToString();
-
-        if(waterBalloonCount == 0) {
-            //deactivate button
-        }
+    public void OnClickTimeCell() {
+        //subtract time cells or energybar
+        t_timeCell.text = timeCellCount.ToString();
+        Debug.Log("Rewind time");
     }
 
-    public void OnClickHorn() {
-        activeItem = Items.horn;
-        Debug.Log(activeItem);
-
-        hornCount--;
-        t_horn.text = hornCount.ToString();
-
-        if(hornCount == 0) {
-            //deactivate horn button
-        }
-    }
-
-    public void OnClickStone() {
-        activeItem = Items.stone;
-        Debug.Log(activeItem);
-
-        stoneCount--;
-        t_stone.text = stoneCount.ToString();
-
-        if(stoneCount == 0) {
-            //deactivate stone button
-        }
-
-    }
 
     public void OnClickCoin() {
-        activeItem = Items.coins;
-        Debug.Log(activeItem);
 
     }
-
-    public void OnClickVeggieBag() {
-        activeItem = Items.veggieBag;
-        Debug.Log(activeItem);
-
-    }
-
 
 }

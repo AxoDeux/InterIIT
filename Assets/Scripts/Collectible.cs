@@ -14,13 +14,7 @@ public class Collectible : MonoBehaviour
                     Debug.Log("Coin Collected");
                     InventoryManager.Instance.OnCollectCoin();
                     break;
-                case InventoryManager.Items.waterBalloon:
-                    //update waterballoons
-                    Debug.Log("WaterBalloon collected");
-                    break;
-                case InventoryManager.Items.veggieBag:
-                    Debug.Log("VeggieBag collected");
-                    break;
+
             }
             gameObject.SetActive(false);
         }
