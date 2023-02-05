@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using System;
-//using UnityEngine.core
+
 public class GameManager : MonoBehaviour
 {
-    //public Color red = Color.blue
 
     public static Color[] colorCode = {
         new Color(63f, 235f, 200f),
@@ -28,76 +26,36 @@ public class GameManager : MonoBehaviour
     public static bool isRewinding;
     public static bool canRewind;
 
-    //all functions subscribed to this get invoked when we are rewinding
-    //public static Action OnStartRewinding = delegate { };
-    //all functions subscribed to this get invoked when we are not rewinding
-    //public static Action OnStopRewinding = delegate { };
-
-    //publi
-    //private static GameManager _instance;
-    //public static GameManager Instance
-    //{
-    //    get
-    //    {
-    //        if (_instance == null)
-    //            _instance = new GameManager();
-
-    //        return _instance;
-    //    }
-    //}
 
     void Start()
     {
         isRewinding = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
     public void StartColorChoosingSequence(SpriteRenderer sprite)
     {
-        //Color rndColor = ChooseRandomColor();
-        //SetColor(sprite, rndColor, null);
-        //while (true)
         StartCoroutine("ChangeColor", sprite);
-        //StopCoroutine("ChangeColor");
     }
-    //changes color after some seconds
+
     IEnumerator ChangeColor(SpriteRenderer sprite = null)
     {
         //choose next color
-
         Color nextColor = ChooseRandomColor();
-        //set the sprite color
-        //SetColor(sprite, nextColor, null);
+
         //set the image color here it's circle
         SetColor(null, nextColor, circleColorUI);
-
         yield return new WaitForSeconds(colorChangeTime);
+
         //set sprite color probably gun or bullet
         SetColor(sprite, nextColor, null);
-        //SetColor()
-
-
     }
+
     //set color of the sprite and return the color of the sprite
-    public static Color SetColor(SpriteRenderer sprite, Color colorChosen, Image img)
+    public static void SetColor(SpriteRenderer sprite, Color colorChosen, Image img)
     {
-        if (img == null)
-        {
-            //Debug.Log(img.color);
-            sprite.color = colorChosen;
-            return sprite.color;
-        }
-        if (img != null)
-        {
-            Debug.Log("We change color of circle");
-            img.color = colorChosen;
-            return img.color;
-        }
-        else return Color.yellow;
+        if(sprite != null) { sprite.color = colorChosen; }
+        if(img != null) { img.color = colorChosen; }
     }
 
     public static Color ChooseRandomColor()
@@ -106,10 +64,4 @@ public class GameManager : MonoBehaviour
         return GameManager.colorCode[rnd];
     }
 
-
-    //public Color getGunColor()
-    //{
-    //    Debug.Log("GUN COLOR IS " + gunSprite.color);
-    //    return gunSprite.color;
-    //}
 }

@@ -25,11 +25,9 @@ public class Enemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log(collision.gameObject.name);
-        //Debug.Log("Enemy circle color " + enemyCircle.color + ", bullet color" + collision.gameObject.GetComponentInChildren<SpriteRenderer>().color);
-        if (collision.gameObject.CompareTag("Bullet") && (enemyCircle.color == collision.gameObject.GetComponentInChildren<SpriteRenderer>().color))
+        SpriteRenderer bullet = collision.gameObject.GetComponentInChildren<SpriteRenderer>();
+        if (collision.gameObject.CompareTag("Bullet") && (enemyCircle.color == bullet.color))
         {
-            //check bullet type and then destroy
             hitCount++;
             if(hitCount >= hitsRequired) {
                 ScoreManager.Instance.OnKillEnemy(type);

@@ -4,8 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ScoreManager : MonoBehaviour
-{
+public class ScoreManager : MonoBehaviour {
     public static ScoreManager Instance { get; private set; }
 
     private const float MAX_INFECTION = 1000f;
@@ -108,15 +107,15 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void DealDamage(float damage) {
-        i_infectionBar.fillAmount += damage/MAX_INFECTION;
+        i_infectionBar.fillAmount += damage / MAX_INFECTION;
         if(i_infectionBar.fillAmount >= 1) {
-            //game over
+            OnGameOver();
         }
     }
 
     public void OnKillEnemy(Enemy.EnemyType type) {
         //update score as per enemy type
-        
+
         switch(type) {
             case Enemy.EnemyType.Contagious:
                 score += EnemyToPointsMap[Enemy.EnemyType.Contagious];
@@ -136,5 +135,10 @@ public class ScoreManager : MonoBehaviour
 
     private void SetScore() {
         scoreText.text = score.ToString();
+    }
+
+    private void OnGameOver() {
+        gameOverScreen.SetActive(true);
+
     }
 }

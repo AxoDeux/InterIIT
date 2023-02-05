@@ -17,7 +17,8 @@ public class Collectible : MonoBehaviour
                     ScoreManager.Instance.OnCollectTimeCell();
                     break;
                 case InventoryManager.Items.weaponUpgrade:
-                    InventoryManager.Instance.OnCollectAdvancedWeapon();
+                    Shooting shootingScript = collision.GetComponent<Shooting>();
+                    shootingScript.ChangeShootingMode(Shooting.ShootingMode.Dual);
                     break;
             }
             gameObject.SetActive(false);
