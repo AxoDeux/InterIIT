@@ -674,7 +674,10 @@ MonoBehaviour:
   - {fileID: 699190298}
   - {fileID: 1959857706}
   - {fileID: 335104654}
-  enemy: {fileID: 7938035857303046850, guid: 3ffbc6e3c3678714b86f8958bebd794e, type: 3}
+  enemies:
+  - {fileID: 7938035857303046850, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
+  - {fileID: 7938035857303046850, guid: 3ffbc6e3c3678714b86f8958bebd794e, type: 3}
+  - {fileID: 7938035857303046850, guid: 4d349046d6787514e9cc81487e4336a7, type: 3}
   enemyParent: {fileID: 1866882247}
   spawnTime: 5
 --- !u!4 &1241605928

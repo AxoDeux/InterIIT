@@ -23,6 +23,10 @@ public class Enemy : MonoBehaviour
         GameManager.SetColor(enemyCircle, rndColor, null);
         hitCount = 0;
     }
+    public EnemyType GetEnemyType() {
+        return type;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         SpriteRenderer bullet = collision.gameObject.GetComponentInChildren<SpriteRenderer>();

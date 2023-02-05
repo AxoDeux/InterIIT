@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField]
-    List<GameObject> spawnPoints;
-    [SerializeField]
-    GameObject enemy;
-    [SerializeField]
-    Transform enemyParent;
-    [SerializeField]
-    float spawnTime = 3f;
+    [SerializeField] List<GameObject> spawnPoints;
+
+    [SerializeField] List<GameObject> enemies;
+    [SerializeField] Transform enemyParent;
+    [SerializeField] float spawnTime = 3f;
     float currTime = 0;
+    private Dictionary<Enemy.EnemyType, GameObject> typeToEnemyObjectMap;
 
     // Start is called before the first frame update
+    private void Awake() {
+        typeToEnemyObjectMap = new Dictionary<Enemy.EnemyType, GameObject>();
+    }
     void Start()
     {
+        foreach (GameObject go in enemies) {
+            Enemy.EnemyType type = go.GetComponent<Enemy>().GetEnemyType();
+            typeToEnemyObjectMap[type] = go;
+        }
         Spawn();
     }
 
@@ -38,7 +43,7 @@ public class Spawner : MonoBehaviour
     {
         foreach (var item in spawnPoints)
         {
-            GameObject newGameObject = Instantiate(enemy, item.transform.position, transform.rotation);
+            GameObject newGameObject = Instantiate(typeToEnemyObjectMap[Enemy.EnemyType.Contagious], item.transform.position, transform.rotation);
             newGameObject.transform.parent = enemyParent;
         }
     }
