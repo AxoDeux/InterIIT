@@ -10,16 +10,13 @@ public class Collectible : MonoBehaviour
         if(collision.CompareTag("Player")) {
             switch(itemType) {
                 case InventoryManager.Items.coins:
-                    //update coins
-                    Debug.Log("Coin Collected");
                     InventoryManager.Instance.OnCollectCoin();
                     break;
-                case InventoryManager.Items.waterBalloon:
-                    //update waterballoons
-                    Debug.Log("WaterBalloon collected");
+                case InventoryManager.Items.timeCell:
+                    InventoryManager.Instance.OnCollectTimeCell();
                     break;
-                case InventoryManager.Items.veggieBag:
-                    Debug.Log("VeggieBag collected");
+                case InventoryManager.Items.weaponUpgrade:
+                    InventoryManager.Instance.OnCollectAdvancedWeapon();
                     break;
             }
             gameObject.SetActive(false);

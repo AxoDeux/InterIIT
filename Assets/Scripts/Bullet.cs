@@ -30,8 +30,6 @@ public class Bullet : MonoBehaviour
     {
         StartCoroutine(WaitForBullet());
         //position of player when he shoots the bullet
-
-        Debug.Log("shots fired");
     }
     IEnumerator WaitForBullet()
     {

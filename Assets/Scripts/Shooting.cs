@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 public class Shooting : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     SpriteRenderer gunSprite;
 
+
     [Tooltip("Color change time of of guns")]
     //float colorChangeTime = ga;
 
@@ -29,6 +32,17 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     [Tooltip("Slider for the circle")]
     Slider slider;
+
+    float currTime_2 = 0;
+    float minTime = 0.2f;
+    private Vector2 mousePos;
+    private Vector2 shootDir;
+
+    private Camera cam;
+
+    private void Awake() {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
 
     private void Start()
     {
@@ -51,13 +65,20 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            Shoot();
+            //if(EventSystem.current.IsPointerOverGameObject()) { return; }
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            if(currTime>minTime) {
+                Shoot();
+                currTime = 0;
+            } else {
+                currTime += Time.deltaTime;
+            }
         }
-        if (currTime > GameManager.colorChangeTime)
+        if (currTime_2 > GameManager.colorChangeTime)
         {
-            currTime = 0;
+            currTime_2 = 0;
             gameManager.StartColorChoosingSequence(gunSprite);
 
             //GameManager.
@@ -65,9 +86,9 @@ public class Shooting : MonoBehaviour
         }
         else
         {
-            currTime += Time.deltaTime;
+            currTime_2 += Time.deltaTime;
         }
-        slider.value = currTime / GameManager.colorChangeTime;
+        slider.value = currTime_2 / GameManager.colorChangeTime;
 
     }
 
@@ -76,7 +97,8 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         GameManager.SetColor(bullet.GetComponentInChildren<SpriteRenderer>(), gameObject.GetComponent<SpriteRenderer>().color, null);
         Rigidbody2D rb = bullet.GetComponentInChildren<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        shootDir = mousePos - new Vector2(firePoint.position.x, firePoint.position.y);
+        rb.AddForce(shootDir.normalized * bulletForce, ForceMode2D.Impulse);
         //change gun color on shoot
         //SetBulletGunColor();
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour
+public class EnemyShooting : Enemy
 {
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject enemyBulletPrefab;
