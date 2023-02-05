@@ -315,6 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCircle: {fileID: 3649361039260657572}
+  damage: 10
+  hitsRequired: 2
+  type: 1
   firePoint: {fileID: 17088492772410567}
   enemyBulletPrefab: {fileID: 3126202580475667995, guid: 2e6f52d785d2ab14dab0b243529e47a5, type: 3}
-  bulletForce: 50
+  bulletForce: 10

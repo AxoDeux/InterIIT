@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 0}
+  damage: 2
+  bulletrange: 3
 --- !u!1 &8969834010166432247
 GameObject:
   m_ObjectHideFlags: 0

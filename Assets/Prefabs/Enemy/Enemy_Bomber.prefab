@@ -283,6 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c94ab4bf7c5abc46a331407e0a35a4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 5
+  damageInterval: 1
 --- !u!1 &7938035857303046850
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,5 +400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCircle: {fileID: 3649361039260657572}
+  damage: 10
+  hitsRequired: 2
+  type: 2
   explosionDist: 2
   toxicZone: {fileID: 2826922571553733382}

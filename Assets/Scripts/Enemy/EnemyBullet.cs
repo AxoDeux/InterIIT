@@ -6,29 +6,31 @@ public class EnemyBullet : MonoBehaviour
 {
     [SerializeField]
     private GameObject hitEffect = null; //add hit animation
+    [SerializeField] private float damage = 10f;
 
-    //[SerializeField]
-    //[Range(0, 10)]
-    ////after this range bullet will destroy it self
-    //float bulletRange = 5.0f;
-    //private void FixedUpdate() {
-    //    CheckDistanceOfBullet();
-    //}
+    [SerializeField]
+    [Range(0, 10)]
+    //after this range bullet will destroy it self
+    float bulletrange = 5.0f;
+    private void FixedUpdate() {
+        CheckDistanceOfBullet();
+    }
 
-    //private void CheckDistanceOfBullet() {
-    //    Transform playerCurrPosition =
-    //                GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    //    if(Vector2.Distance(transform.position, playerCurrPosition.position) > bulletRange) {
-    //        DestroyBullet();
-    //    }
-    //}
+    private void CheckDistanceOfBullet() {
+        Transform playerCurrPosition =
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if(Vector2.Distance(transform.position, playerCurrPosition.position) > bulletrange) {
+            DestroyBullet();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         StartCoroutine(WaitForBullet());
         if(collision.gameObject.CompareTag("Player")) {
-            //deal damage
+            ScoreManager.Instance.DealDamage(damage);
         }
     }
+
     IEnumerator WaitForBullet() {
         yield return new WaitForSeconds(2f);
         DestroyBullet();

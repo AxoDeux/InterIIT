@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public static float colorChangeTime = 3f;
 
     public static bool isRewinding;
+    public static bool canRewind;
 
     //all functions subscribed to this get invoked when we are rewinding
     //public static Action OnStartRewinding = delegate { };

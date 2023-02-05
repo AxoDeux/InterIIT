@@ -7,22 +7,20 @@ using UnityEngine;
 public class TimeBody : MonoBehaviour
 {
     //isRewinding = false;
-
-
-
     List<TimeStamp> positions;
+
     private void Start()
     {
         positions = new List<TimeStamp>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && GameManager.canRewind)
         {
             //GameManager.OnStartRewinding?.Invoke();
             StartRewind();
         }
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.E) && GameManager.isRewinding)
         {
             StopRewind();
             //GameManager.OnStopRewinding?.Invoke();
@@ -54,10 +52,13 @@ public class TimeBody : MonoBehaviour
     public void StopRewind()
     {
         GameManager.isRewinding = false;
+        GameManager.canRewind = false;
+        ScoreManager.Instance.OnBatteryDischarged();
     }
 
     public void StartRewind()
     {
         GameManager.isRewinding = true;
     }
+
 }

@@ -2,11 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    const float MAX_TIME = 300f; //seconds
+    public static ScoreManager Instance { get; private set; }
+
+    private const float MAX_INFECTION = 1000f;
+
     [SerializeField] private TMP_Text timeText;
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private Image i_timeBattery;
+    [SerializeField] private Image i_infectionBar;
+    [SerializeField] private GameObject gameOverScreen;
+
+    private int score;
+    private Dictionary<Enemy.EnemyType, int> EnemyToPointsMap;
 
     private float time = 0f;
     private int minutes;
@@ -14,16 +25,38 @@ public class ScoreManager : MonoBehaviour
     private int milliSeconds;
     private string t_minutes, t_seconds, t_milliSeconds;
 
+    private float timer15 = 15f;
+    private float timer60 = 60f;
+
+    private void Awake() {
+        if(Instance != null && Instance != this) {
+            Destroy(this);
+        } else {
+            Instance = this;
+        }
+
+        EnemyToPointsMap = new Dictionary<Enemy.EnemyType, int>() {
+            {Enemy.EnemyType.Contagious, 10 },
+            {Enemy.EnemyType.Shooter, 20 },
+            {Enemy.EnemyType.Bomber, 30 },
+
+        };
+    }
+
     private void Start() {
-        time = MAX_TIME;
+        time = 0f;
+        score = 0;
+        i_timeBattery.fillAmount = 0f;
+        i_infectionBar.fillAmount = 0f;
     }
 
     private void Update() {
-       SetClockTime();  
+        SetClockTime();
+        SetScore();
     }
 
     private void SetClockTime() {
-        time -= Time.deltaTime;
+        time += Time.deltaTime;
 
         minutes = (int)time / 60;
         seconds = (int)time % 60;
@@ -42,6 +75,66 @@ public class ScoreManager : MonoBehaviour
             t_milliSeconds = "0" + milliSeconds.ToString();
         } else t_milliSeconds = milliSeconds.ToString();
 
-        timeText.text = $"{t_minutes}:{t_seconds}:{t_milliSeconds}";
+        if(minutes == 0) {
+            timeText.text = $"{t_seconds}:{t_milliSeconds}";
+        } else {
+            timeText.text = $"{t_minutes}:{t_seconds}:{t_milliSeconds}";
+        }
+
+        timer15 -= Time.deltaTime;
+        if(timer15 <= 0) {
+            TimeScoreIncrease(10);
+            timer15 = 15f;
+        }
+
+        timer60 -= Time.deltaTime;
+        if(timer60 <= 0) {
+            TimeScoreIncrease(20);
+            timer60 = 60f;
+        }
+    }
+
+    public void OnCollectTimeCell() {
+        if(i_timeBattery.fillAmount >= 1f) { return; }
+        i_timeBattery.fillAmount += 0.25f;
+
+        if(i_timeBattery.fillAmount >= 1f) {
+            GameManager.canRewind = true;
+        }
+    }
+
+    public void OnBatteryDischarged() {
+        i_timeBattery.fillAmount = 0f;
+    }
+
+    public void DealDamage(float damage) {
+        i_infectionBar.fillAmount += damage/MAX_INFECTION;
+        if(i_infectionBar.fillAmount >= 1) {
+            //game over
+        }
+    }
+
+    public void OnKillEnemy(Enemy.EnemyType type) {
+        //update score as per enemy type
+        
+        switch(type) {
+            case Enemy.EnemyType.Contagious:
+                score += EnemyToPointsMap[Enemy.EnemyType.Contagious];
+                break;
+            case Enemy.EnemyType.Shooter:
+                score += EnemyToPointsMap[Enemy.EnemyType.Shooter];
+                break;
+            case Enemy.EnemyType.Bomber:
+                score += EnemyToPointsMap[Enemy.EnemyType.Bomber];
+                break;
+        }
+    }
+
+    private void TimeScoreIncrease(int scoreIncrease) {
+        score += scoreIncrease;
+    }
+
+    private void SetScore() {
+        scoreText.text = score.ToString();
     }
 }
