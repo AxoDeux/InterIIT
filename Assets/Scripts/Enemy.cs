@@ -10,12 +10,13 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
-        GameManager.SetColor(enemyCircle);
+        Color rndColor = GameManager.ChooseRandomColor();
+        GameManager.SetColor(enemyCircle, rndColor, null);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log(collision.gameObject.name);
-        Debug.Log("Enemy circle color " + enemyCircle.color + ", bullet color" + collision.gameObject.GetComponentInChildren<SpriteRenderer>().color);
+        //Debug.Log("Enemy circle color " + enemyCircle.color + ", bullet color" + collision.gameObject.GetComponentInChildren<SpriteRenderer>().color);
         if (collision.gameObject.CompareTag("Bullet") && (enemyCircle.color == collision.gameObject.GetComponentInChildren<SpriteRenderer>().color))
         {
             //check bullet type and then destroy

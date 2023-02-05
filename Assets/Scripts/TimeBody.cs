@@ -17,12 +17,12 @@ public class TimeBody : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             //GameManager.OnStartRewinding?.Invoke();
             StartRewind();
         }
-        if (Input.GetKeyUp(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.E))
         {
             StopRewind();
             //GameManager.OnStopRewinding?.Invoke();
