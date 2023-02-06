@@ -40,7 +40,8 @@ public class Shooting : MonoBehaviour
 
     private Camera cam;
 
-    private void Awake() {
+    private void Awake()
+    {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
@@ -69,10 +70,13 @@ public class Shooting : MonoBehaviour
         {
             //if(EventSystem.current.IsPointerOverGameObject()) { return; }
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            if(currTime>minTime) {
+            if (currTime > minTime)
+            {
                 Shoot();
                 currTime = 0;
-            } else {
+            }
+            else
+            {
                 currTime += Time.deltaTime;
             }
         }
@@ -102,6 +106,4 @@ public class Shooting : MonoBehaviour
         //change gun color on shoot
         //SetBulletGunColor();
     }
-
-
 }
