@@ -19,7 +19,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Image i_nextWeapon;
     private float colorChangeTime = 3f;
 
-    public enum ShootingMode {
+    public enum ShootingMode
+    {
         Single,
         Dual
     };
@@ -53,21 +54,20 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1")) 
+        if (Input.GetButton("Fire1"))
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             if (currTime > minTime)
             {
-                    Shoot();
-                if(currTime>minTime) {
-                    if(shootingMode == ShootingMode.Single) { Shoot(); }
-                    else if(shootingMode == ShootingMode.Dual) { DualShoot(); }
-                    currTime = 0;
-                }
-                else
-                {
-                    currTime += Time.deltaTime;
-                }
+                Shoot();
+                if (shootingMode == ShootingMode.Single) { Shoot(); }
+                else if (shootingMode == ShootingMode.Dual) { DualShoot(); }
+                currTime = 0;
+            }
+
+            else
+            {
+                currTime += Time.deltaTime;
             }
         }
         if (currTime_2 > colorChangeTime)
@@ -91,7 +91,8 @@ public class Shooting : MonoBehaviour
         rb.AddForce(shootDir.normalized * bulletForce, ForceMode2D.Impulse);
     }
 
-    private void DualShoot() {
+    private void DualShoot()
+    {
         GameObject bullet1 = Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
         GameManager.SetColor(bullet1.GetComponentInChildren<SpriteRenderer>(), gunSprite.color, null);
         Rigidbody2D rb1 = bullet1.GetComponentInChildren<Rigidbody2D>();
@@ -103,22 +104,28 @@ public class Shooting : MonoBehaviour
         rb2.AddForce(firePoint2.up * bulletForce, ForceMode2D.Impulse);
     }
 
-    public void ChangeShootingMode(ShootingMode mode) {
-        if(mode == ShootingMode.Single) {
+    public void ChangeShootingMode(ShootingMode mode)
+    {
+        if (mode == ShootingMode.Single)
+        {
             dualWeapon.SetActive(false);
-        } else {
+        }
+        else
+        {
             dualWeapon.SetActive(true);
             StartCoroutine(ResetShootingMode());
         }
         shootingMode = mode;
     }
 
-    private IEnumerator ResetShootingMode() {
+    private IEnumerator ResetShootingMode()
+    {
         yield return new WaitForSeconds(15f);
         ChangeShootingMode(ShootingMode.Single);
     }
 
-    private void SetGunColour() {
+    private void SetGunColour()
+    {
         Color color = GameManager.ChooseRandomColor();
         i_currWeapon.color = i_nextWeapon.color;
         i_nextWeapon.color = color;
