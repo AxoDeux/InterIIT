@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
 
     private int score;
-    private int highScore = 0;
+    public int highScore = 0;
     private Dictionary<Enemy.EnemyType, int> EnemyToPointsMap;
 
     private float time = 0f;
@@ -168,6 +168,7 @@ public class ScoreManager : MonoBehaviour
             PlayerPrefs.SetInt("HIGHSCORE", currScore);
             highScore = PlayerPrefs.GetInt("HIGHSCORE");
             Debug.Log($"Highscore is {highScore}");
+            PlayerPrefs.Save();
         }
     }
 
@@ -187,6 +188,7 @@ public class ScoreManager : MonoBehaviour
     {
         //time scale 0
         //stop all active coroutines and set isDead booleans to true;
+        Cursor.visible = true;
         gameOverScreen.SetActive(true);
         gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
     }
