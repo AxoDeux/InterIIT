@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
     float currTime_2 = 2.0f;
 
     //[SerializeField]
-    GameManager gameManager;
+    //GameManager gameManager;
 
     float currTime = 0f;
     float minTime = 0.2f;
@@ -46,7 +46,7 @@ public class Shooting : MonoBehaviour
 
     private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        //gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         shootingMode = ShootingMode.Single;
     }
 

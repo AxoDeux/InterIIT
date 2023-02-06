@@ -262,6 +262,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCircle: {fileID: 3649361039260657572}
+  damage: 10
+  hitsRequired: 1
+  type: 0
 --- !u!50 &1492940372525846981
 Rigidbody2D:
   serializedVersion: 4
@@ -281,5 +284,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

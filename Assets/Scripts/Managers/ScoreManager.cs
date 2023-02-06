@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour {
     [SerializeField] private GameObject gameOverScreen;
 
     private int score;
+    private int highScore = 0;
     private Dictionary<Enemy.EnemyType, int> EnemyToPointsMap;
 
     private float time = 0f;
@@ -138,7 +139,9 @@ public class ScoreManager : MonoBehaviour {
     }
 
     private void OnGameOver() {
+        //time scale 0
+        //stop all active coroutines and set isDead booleans to true;
         gameOverScreen.SetActive(true);
-
+        gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
     }
 }

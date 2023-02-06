@@ -669,6 +669,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dea8a5599a554a388e083b3c6524172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitStartTime: 3
+  wave1Time: 20
+  wave2Time: 20
+  wave3Time: 20
   spawnPoints:
   - {fileID: 1750447710}
   - {fileID: 699190298}
@@ -1387,11 +1391,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5677151843302805049, guid: 1ef95b8e8fc8d0b4e9ee1e5ae1651405, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5677151843302805049, guid: 1ef95b8e8fc8d0b4e9ee1e5ae1651405, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5677151843302805049, guid: 1ef95b8e8fc8d0b4e9ee1e5ae1651405, type: 3}
       propertyPath: m_LocalPosition.z
