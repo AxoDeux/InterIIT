@@ -82,11 +82,9 @@ public class PlayerMovement : MonoBehaviour
     public void HandleToxicZoneEffect(bool isInToxicZone) {   //changing speed variable because its used in update methods
         if(isInToxicZone) {
             speed = infectedSpeed;
-            Debug.Log(speed);
             //deal damage
         } else {
             speed = tmpSpeed;
-            Debug.Log(speed);
 
         }
     }
