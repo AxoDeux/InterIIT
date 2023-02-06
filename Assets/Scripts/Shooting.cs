@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform firePoint1;
@@ -54,8 +53,9 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1"))
-        {
+        if (Input.GetButton("Fire1")) {
+            if(EventSystem.current.IsPointerOverGameObject()) return;
+
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             if (currTime > minTime)
             {
