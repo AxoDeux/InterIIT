@@ -17,9 +17,11 @@ public class Enemy : MonoBehaviour
     };
     [SerializeField] private EnemyType type;
 
+    public Color rndColor;
+
     public void Start()
     {
-        Color rndColor = GameManager.ChooseRandomColor();
+        rndColor = GameManager.ChooseRandomColor();
         GameManager.SetColor(enemyCircle, rndColor, null);
         hitCount = 0;
     }

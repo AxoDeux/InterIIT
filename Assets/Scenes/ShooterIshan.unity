@@ -360,7 +360,7 @@ Transform:
   - {fileID: 588147321}
   - {fileID: 2053134419}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &152076343
 PrefabInstance:
@@ -2193,9 +2193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitStartTime: 3
-  wave1Time: 20
-  wave2Time: 20
-  wave3Time: 20
+  wave1Time: 5
+  wave2Time: 5
+  wave3Time: 5
   spawnPoints:
   - {fileID: 1750447710}
   - {fileID: 699190298}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuButtons : MonoBehaviour
 {
     [SerializeField] private MainMenuManager menuManager;
+    [SerializeField] private List<Sprite> buttonSprites;
     private const int REQ_HITS = 3;
     private int hitCount;
 
@@ -17,9 +18,15 @@ public class MenuButtons : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.gameObject.CompareTag("Bullet")) {
             hitCount++;
+            ChangeSprite();
             if(hitCount == REQ_HITS) {
                 menuManager.OnDestroyButton(buttonType);
             }
         }
+    }
+
+    private void ChangeSprite() {
+        if(hitCount > REQ_HITS) return;
+        gameObject.GetComponent<SpriteRenderer>().sprite = buttonSprites[hitCount];
     }
 }
