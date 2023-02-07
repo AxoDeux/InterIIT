@@ -30,7 +30,9 @@ public class EnemyBomber : Enemy
     private IEnumerator Explode()
     {
         toxicZone.SetActive(true);
-        //enemyCircle.gameObject.SetActive(false);
+        toxicZone.GetComponent<SpriteRenderer>().color = rndColor;
+        enemyCircle.gameObject.SetActive(false);
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
         timeScript.enabled = false;
         followScript.enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;

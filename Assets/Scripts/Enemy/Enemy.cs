@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     };
     [SerializeField] private EnemyType type;
 
+    public Color rndColor;
+
     public void Start()
     {
         Color rndColor = GameManager.ChooseRandomColor();
