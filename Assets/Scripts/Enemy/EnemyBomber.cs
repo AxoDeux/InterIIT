@@ -11,26 +11,30 @@ public class EnemyBomber : Enemy
     private GameObject player;
     private Vector2 distance;
 
-    private void Awake() {
+    private void Awake()
+    {
         timeScript = GetComponent<TimeBody>();
         followScript = GetComponent<EnemyFollow>();
         player = followScript.target.gameObject;
     }
 
-    private void Update() {
+    private void Update()
+    {
         distance = player.transform.position - transform.position;
-        if(distance.magnitude < explosionDist) {
+        if (distance.magnitude < explosionDist)
+        {
             StartCoroutine(Explode());
         }
     }
 
-    private IEnumerator Explode() {
+    private IEnumerator Explode()
+    {
         toxicZone.SetActive(true);
-        enemyCircle.gameObject.SetActive(false);
+        //enemyCircle.gameObject.SetActive(false);
         timeScript.enabled = false;
         followScript.enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
-        
+
         yield return new WaitForSeconds(5f);
         toxicZone.SetActive(false);
 

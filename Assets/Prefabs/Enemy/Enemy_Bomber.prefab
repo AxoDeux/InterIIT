@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3076721083227419048}
   - component: {fileID: 3649361039260657572}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6982879541678839809}
   - component: {fileID: 40704184541974869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 2912119610232309019}
   - component: {fileID: 1787256867691716981}
   - component: {fileID: 4894397156433985243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ToxicZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 2949057916717606300}
   - component: {fileID: 3188618979239908214}
   - component: {fileID: 8617996775898441191}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_Bomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab55b302c729dcb40b52c4645a1804c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCircle: {fileID: 3649361039260657572}
+  enemyColoredParts: []
   damage: 10
   hitsRequired: 2
   type: 2

@@ -5,12 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    public SpriteRenderer enemyCircle;
+    public SpriteRenderer[] enemyColoredParts;
 
     [SerializeField] private float damage = 10f;
     [SerializeField] private int hitsRequired = 1;
     private int hitCount;
-    public enum EnemyType {
+    public enum EnemyType
+    {
         Contagious,
         Shooter,
         Bomber
@@ -20,20 +21,26 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         Color rndColor = GameManager.ChooseRandomColor();
-        GameManager.SetColor(enemyCircle, rndColor, null);
+        foreach (SpriteRenderer sprite in enemyColoredParts)
+        {
+            GameManager.SetColor(sprite, rndColor, null);
+        }
         hitCount = 0;
     }
-    public EnemyType GetEnemyType() {
+    public EnemyType GetEnemyType()
+    {
         return type;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         SpriteRenderer bullet = collision.gameObject.GetComponentInChildren<SpriteRenderer>();
-        if (collision.gameObject.CompareTag("Bullet") && (enemyCircle.color == bullet.color))
+        if (enemyColoredParts.Length > 0 && collision.gameObject.CompareTag("Bullet") && (enemyColoredParts[0].color == bullet.color))
         {
+            //Debug.Log("We hit");
             hitCount++;
-            if(hitCount >= hitsRequired) {
+            if (hitCount >= hitsRequired)
+            {
                 ScoreManager.Instance.OnKillEnemy(type);
                 Destroy(collision.gameObject);
                 Destroy(gameObject);

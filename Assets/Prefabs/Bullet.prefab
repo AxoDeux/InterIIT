@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 287766983399325581}
   - component: {fileID: 1512840783868936319}
   - component: {fileID: 2384997676106799420}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 4430904385221003278}
   - component: {fileID: 1815578502234017465}
   - component: {fileID: 345646318172025614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bulletSprite
   m_TagString: Bullet
   m_Icon: {fileID: 0}

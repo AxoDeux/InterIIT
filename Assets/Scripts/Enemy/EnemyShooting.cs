@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
+using Unity.VisualScripting;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyShooting : Enemy
 {
@@ -10,14 +14,25 @@ public class EnemyShooting : Enemy
     private GameObject bullet;
     private Rigidbody2D bulletRb;
 
-    private bool canShoot = true;
+    public Transform target;
+    private Vector3 lookDir;
+    private float angle;    //to point at player
+    public GameObject gunRb;
 
-    private void Update() {
-        if(!canShoot) { return; }
+    private bool canShoot = true;
+    private void Awake()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+    private void Update()
+    {
+        Rotate();
+        if (!canShoot) { return; }
         StartCoroutine(Shoot());
     }
 
-    private IEnumerator Shoot() {
+    private IEnumerator Shoot()
+    {
         canShoot = false;
         bullet = Instantiate(enemyBulletPrefab, firePoint);
         bulletRb = bullet.GetComponent<Rigidbody2D>();
@@ -25,5 +40,11 @@ public class EnemyShooting : Enemy
 
         yield return new WaitForSeconds(2f);
         canShoot = true;
+    }
+    private void Rotate()
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        gunRb.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }

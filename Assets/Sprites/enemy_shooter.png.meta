@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f850c0f20a91942adacb2e1a3117e61e
+guid: 2299273bc0c7042e994f40eeccd68fff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -130,127 +130,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: enemy_1_0
+      name: enemy_shooter_0
       rect:
         serializedVersion: 2
-        x: 414
-        y: 375
-        width: 486
-        height: 408
-      alignment: 9
-      pivot: {x: 0.5087966, y: 0.049428977}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 503e967458c174642af0675bde06700a
-      internalID: 534288179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_1_2
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 356
-        width: 76
-        height: 97
-      alignment: 9
-      pivot: {x: 0.9781454, y: 0.9958329}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 700693d4e8ca947cfaae9c25999d1fdd
-      internalID: -839132161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_1_3
-      rect:
-        serializedVersion: 2
-        x: 230
-        y: 375
-        width: 100
-        height: 78
-      alignment: 9
-      pivot: {x: -0.045086365, y: 0.97958726}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e03ee73e75b3d4f7a86003b9b7b6dc57
-      internalID: 501077952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_1_4
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 161
-        width: 63
-        height: 96
-      alignment: 9
-      pivot: {x: 0.9750202, y: 1.0009975}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4b92145027f94b9282173b082f0af94
-      internalID: 1742826629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_1_6
-      rect:
-        serializedVersion: 2
-        x: 253
-        y: 161
-        width: 27
-        height: 95
-      alignment: 9
-      pivot: {x: 0.024978073, y: 0.93876827}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8d1884bfe44f4549b4201fb25c267e3
-      internalID: 1844604962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: enemy_1_7
-      rect:
-        serializedVersion: 2
-        x: 592
-        y: 59
-        width: 178
-        height: 280
+        x: 18
+        y: 222
+        width: 539
+        height: 470
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccd53fd50b4dc4377ac243ff1bc5dd50
-      internalID: -1303504978
+      spriteID: bd87879a340bd411e9003425b02504e4
+      internalID: -268424703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_shooter_2
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 412
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b7ac6ef0ac14d948acfa1fb9acc95e
+      internalID: -119433319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_shooter_3
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 456
+        width: 88
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ac37d4a538c4e55862a989045127db
+      internalID: -1060170763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_shooter_4
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 169
+        width: 237
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61fa0e77290004a8490dc6393afe6cd3
+      internalID: -1689846965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_shooter_5
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1
+        width: 16
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae06290658bb64dd0a8e6788b3c9917b
+      internalID: 1257820644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_shooter_6
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 0
+        width: 20
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66acedbb92e7a4656ab81f8feda63817
+      internalID: 2061453831
       vertices: []
       indices: 
       edges: []
@@ -266,14 +266,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_1_3: 501077952
-      enemy_1_5: 1337217144
-      enemy_1_2: -839132161
-      enemy_1_4: 1742826629
-      enemy_1_0: 534288179
-      enemy_1_6: 1844604962
-      enemy_1_7: -1303504978
-      enemy_1_1: -638310249
+      enemy_shooter_6: 2061453831
+      enemy_shooter_2: -119433319
+      enemy_shooter_1: -878078194
+      enemy_shooter_5: 1257820644
+      enemy_shooter_0: -268424703
+      enemy_shooter_4: -1689846965
+      enemy_shooter_3: -1060170763
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

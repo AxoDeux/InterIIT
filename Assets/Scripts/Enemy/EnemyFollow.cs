@@ -13,8 +13,10 @@ public class EnemyFollow : MonoBehaviour
     private Vector2 lookDir;
     private float angle;    //to point at player
 
+    Animator anim;
     private void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -29,7 +31,13 @@ public class EnemyFollow : MonoBehaviour
     {
         if (Vector2.Distance(target.position, transform.position) > stoppingDistance)
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if (anim != null)
+            anim.SetTrigger("isWalking");
+        //RotateEnemy();
+    }
 
+    private void Rotate()
+    {
         lookDir = target.position - transform.position;
         angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
