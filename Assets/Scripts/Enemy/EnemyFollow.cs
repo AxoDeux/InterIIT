@@ -4,16 +4,43 @@ using JetBrains.Annotations;
 using UnityEngine;
 using Pathfinding;
 
+[RequireComponent(typeof(AIPath))]
+[RequireComponent(typeof(AIDestinationSetter))]
 public class EnemyFollow : MonoBehaviour
 {
-    public float speed;
-    public Transform target;
-    public float stoppingDistance;
+    //public float stoppingDistance;
+    //public float speed = 2f;
 
-    private Rigidbody2D rb;
     private Vector2 lookDir;
     private float angle;    //to point at player
     Animator anim;
+
+    [Header("Pathfinding")]
+    public AIPath aiPath;
+    public Transform target;
+    private AIDestinationSetter destinationSetter;
+
+    private void Awake() {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        aiPath = GetComponent<AIPath>();
+        destinationSetter = GetComponent<AIDestinationSetter>();
+    }
+
+    private void Start() {
+        destinationSetter.target = target;
+        float randSpeed = Random.Range(1.5f, 3f);
+        aiPath.maxSpeed = randSpeed;
+    }
+
+    private void Update() {
+        //flips object as per player position *CHECK SCALE
+        if(aiPath.desiredVelocity.x >= 0.01f) {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        } else if(aiPath.desiredVelocity.x <= -0.01f){
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+    }
+
     //private void Awake()
     //{
     //    anim = GetComponentInChildren<Animator>();
