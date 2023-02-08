@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3932694918427798695}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5008311688069815652}
   - component: {fileID: 5102230192105522266}
   - component: {fileID: 9201632959906995011}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: i_CurrColour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3829116677603529046}
   - component: {fileID: 7459214959867279633}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GunSprite2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 8213917746978328657}
   - component: {fileID: 7682561697344862852}
   - component: {fileID: 8914774504164612626}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: i_NextColour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988676954199723938}
   - component: {fileID: 364257110582858997}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 4824079277707174105}
   - component: {fileID: 8568655688778609647}
   - component: {fileID: 1366797573087765577}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6560471337126467700}
   - component: {fileID: 6560471337126467701}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 7574594047887834148}
   - component: {fileID: 6776489364009384185}
   - component: {fileID: 8142784765619452440}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ Transform:
   - {fileID: 5473144309548473720}
   - {fileID: 3829116677603529046}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6560471337790743285
 MonoBehaviour:
@@ -786,7 +786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4316574793541287600}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5473144309548473720}
   - component: {fileID: 7459318000812592354}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GunSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -901,9 +901,29 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 6560471337790743286}
     m_Modifications:
+    - target: {fileID: 2714055280515116757, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2825627251665157972, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953931460668969393, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3979676571968840920, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
       propertyPath: m_Name
       value: Player_model
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979676571968840920, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878485421463015222, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6760206070571569937, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
       propertyPath: m_RootOrder
@@ -956,6 +976,14 @@ PrefabInstance:
     - target: {fileID: 6760206070571569937, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808475826869599709, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595912207482586751, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5058991424630049439, guid: 286d08a22a3094e7ea598c54ace9b0e2, type: 3}
