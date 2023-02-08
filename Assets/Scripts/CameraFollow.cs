@@ -18,19 +18,39 @@ public class CameraFollow : MonoBehaviour
 
     private float playerX;
     private float playerY;
+    private bool isXOutOfBound;
+    private bool isYOutOfBound;
+    
 
     private void FixedUpdate() {
-        if(IsPlayerOutOfBounds()) { return; }
-        desiredPos = player.position + offset;
+        GetDesiredPos();
         smoothedPos = Vector3.Lerp(transform.position, desiredPos, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPos;
     }
 
-    private bool IsPlayerOutOfBounds() {
+    private void GetDesiredPos() {
         playerX = player.position.x;
         playerY = player.position.y;
 
-        if(playerX > xPosBound || playerX < xNegBound || playerY > yPosBound || playerY < yNegBound) return true;
-        else return false;
+        if(playerX > xPosBound || playerX < xNegBound) {
+            isXOutOfBound = true;
+        }else {
+            isXOutOfBound = false;
+        }
+        if(playerY > yPosBound || playerY < yNegBound) {
+            isYOutOfBound = true;
+        } else {
+            isYOutOfBound = false;
+        }
+        
+        if(isXOutOfBound && isYOutOfBound) {
+            desiredPos = transform.position;
+        }else if(isXOutOfBound) {
+            desiredPos = new Vector3(transform.position.x, player.position.y, 0f) + offset;
+        }else if(isYOutOfBound) {
+            desiredPos = new Vector3(player.position.x, transform.position.y, 0f) + offset;
+        } else {
+            desiredPos = player.position + offset;
+        }
     }
 }
