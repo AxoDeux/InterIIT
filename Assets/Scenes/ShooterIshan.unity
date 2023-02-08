@@ -4660,7 +4660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1241605927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5005,6 +5005,10 @@ PrefabInstance:
     - target: {fileID: 7938035857303046850, guid: 3ffbc6e3c3678714b86f8958bebd794e, type: 3}
       propertyPath: m_Name
       value: Enemy_Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938035857303046850, guid: 3ffbc6e3c3678714b86f8958bebd794e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

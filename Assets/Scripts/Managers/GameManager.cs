@@ -16,13 +16,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     SpriteRenderer gunSprite;
 
+
+
     [SerializeField]
     Image circleColorUI;
 
     [SerializeField]
     [Tooltip("Color change time of the gun")]
     public static float colorChangeTime = 3f;
-
+    public static float rewindTime = 5f;
     public static bool isRewinding;
     public static bool canRewind;
 
@@ -54,8 +56,8 @@ public class GameManager : MonoBehaviour
     //set color of the sprite and return the color of the sprite
     public static void SetColor(SpriteRenderer sprite, Color colorChosen, Image img)
     {
-        if(sprite != null) { sprite.color = colorChosen; }
-        if(img != null) { img.color = colorChosen; }
+        if (sprite != null) { sprite.color = colorChosen; }
+        if (img != null) { img.color = colorChosen; }
     }
 
     public static Color ChooseRandomColor()
