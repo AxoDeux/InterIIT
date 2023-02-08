@@ -38,6 +38,7 @@ public class Shooting : MonoBehaviour
     float minTime = 0.2f;
     private Vector2 mousePos;
     private Vector2 shootDir;
+    private Vector3 aimDir;
 
     private Camera cam;
 
@@ -95,15 +96,16 @@ public class Shooting : MonoBehaviour
         //RotateGun();
 
 
-        rb.AddForce(shootDir.normalized * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(aimDir.normalized * bulletForce, ForceMode2D.Impulse);
     }
 
     private void RotateGun()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePos - new Vector2(firePoint1.position.x, firePoint1.position.y);
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        gunSprite.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        aimDir = mousePos - new Vector2(firePoint1.position.x, firePoint1.position.y);
+        float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg - 90f;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        gunSprite.transform.rotation = Quaternion.Slerp(gunSprite.transform.rotation, rotation, 5f * Time.deltaTime);
     }
     private void DualShoot()
     {

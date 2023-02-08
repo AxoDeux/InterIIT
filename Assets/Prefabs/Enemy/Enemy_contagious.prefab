@@ -37,6 +37,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1492940372525846981, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1492940372525846981, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -123,6 +127,22 @@ PrefabInstance:
     - target: {fileID: 6646300658818733516, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823625179047002549, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
+      propertyPath: maxSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823625179047002549, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
+      propertyPath: orientation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823625179047002549, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
+      propertyPath: enableRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823625179047002549, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
+      propertyPath: pickNextWaypointDist
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 7938035857303046850, guid: c3d0998d346264afc8cd5076149cced9, type: 3}
       propertyPath: m_Name
