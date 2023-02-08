@@ -32,10 +32,10 @@ public class EnemyBomber : Enemy
         toxicZone.SetActive(true);
         toxicZone.GetComponent<SpriteRenderer>().color = rndColor;
         //enemyCircle.gameObject.SetActive(false);
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         timeScript.enabled = false;
         followScript.enabled = false;
-        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<CapsuleCollider2D>().enabled = false;
 
         yield return new WaitForSeconds(5f);
         toxicZone.SetActive(false);

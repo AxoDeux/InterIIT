@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
         StartCoroutine(WaitForBullet());
         //position of player when he shoots the bullet
     }
+
     IEnumerator WaitForBullet()
     {
         yield return new WaitForSeconds(2f);
