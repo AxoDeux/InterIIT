@@ -9,9 +9,11 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject HowToPlay;
     [SerializeField] private GameObject Story;
     [SerializeField] private GameObject Options;
+    [SerializeField] private GameObject Leaderboard;
     [SerializeField] private GameObject Quit;
 
-    public enum MenuButtonType {
+    public enum MenuButtonType
+    {
         start,
         howtoplay,
         story,
@@ -20,8 +22,10 @@ public class MainMenuManager : MonoBehaviour
         quit
     };
 
-    public void OnDestroyButton(MenuButtonType type) {
-        switch(type) {
+    public void OnDestroyButton(MenuButtonType type)
+    {
+        switch (type)
+        {
             case MenuButtonType.start:
                 SceneManager.LoadScene(1);
                 break;
@@ -35,6 +39,11 @@ public class MainMenuManager : MonoBehaviour
                 //load options screen
                 break;
             case MenuButtonType.leaderboard:
+                {
+                    Leaderboard.SetActive(true);
+                    Debug.Log("We hit leaderboard");
+                    //SoundManager.PlaySound()
+                }
                 //load leaderboard screen
                 break;
             case MenuButtonType.quit:

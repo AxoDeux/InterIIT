@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         tmpSpeed = speed;
-        //playerAnim.GetComponentInChildren<Animator>();
+        playerAnim.GetComponentInChildren<Animator>();
     }
     private void OnEnable()
     {

@@ -103,7 +103,7 @@ public class Shooting : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePos - new Vector2(firePoint1.position.x, firePoint1.position.y);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        gunSprite.transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        gunSprite.transform.rotation = Quaternion.Euler(0, 0, angle + 180);
     }
     private void DualShoot()
     {
