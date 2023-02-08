@@ -147,6 +147,7 @@ public class Shooting : MonoBehaviour
     private void SetGunColour()
     {
         Color color = GameManager.ChooseRandomColor();
+        Debug.Log(color);
         i_currWeapon.color = i_nextWeapon.color;
         i_nextWeapon.color = color;
         i_nextWeapon.fillAmount = 0f;
