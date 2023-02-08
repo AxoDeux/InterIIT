@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject Options;
     [SerializeField] private GameObject Leaderboard;
     [SerializeField] private GameObject Quit;
+    [SerializeField] private GameObject inputField;
+    [SerializeField] private TMP_Text playerName;
+
 
     public enum MenuButtonType
     {
@@ -50,5 +54,15 @@ public class MainMenuManager : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+
+    public void OnClickEditName() {
+        inputField.SetActive(true);
+    }
+
+    public void OnEndEditName(TMP_Text name) {
+        //save name for leaderboard
+        playerName.text = name.text;
+        inputField.SetActive(false);
     }
 }

@@ -556,6 +556,7 @@ MonoBehaviour:
   t_score: {fileID: 6645119626929640082}
   t_highScore: {fileID: 0}
   t_time: {fileID: 0}
+  leaderboard: {fileID: 0}
 --- !u!1 &6645119626003376633
 GameObject:
   m_ObjectHideFlags: 0

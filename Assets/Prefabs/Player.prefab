@@ -637,7 +637,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1252500971801568396, guid: 1c5afb649766139458665ff177ee2dfe, type: 3}
   bulletForce: 100
   gunSprite: {fileID: 9088213162271988949}
-  gunSprite2: {fileID: 7459214959867279633}
+  gunSprite2: {fileID: 2164747088763841478}
   i_currWeapon: {fileID: 9201632959906995011}
   i_nextWeapon: {fileID: 8914774504164612626}
 --- !u!96 &6776489364009384185

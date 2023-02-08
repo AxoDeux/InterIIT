@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private Image i_timeBattery;
     [SerializeField] private Image i_infectionBar;
     [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private GameObject pauseScreen;
+
 
     private int score;
     public int highScore = 0;
@@ -188,12 +190,28 @@ public class ScoreManager : MonoBehaviour
     private void OnGameOver()
     {
         //time scale 0
+        Time.timeScale = 0f;
         //stop all active coroutines and set isDead booleans to true;
         Cursor.visible = true;
         gameOverScreen.SetActive(true);
         SoundManager.PlaySound(SoundManager.Sound.gameOver);
-        //reload scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
+    }
+
+    public void OnClickPause() {
+        Time.timeScale = 0f;
+        Cursor.visible = true;
+        pauseScreen.SetActive(true);
+    }
+
+    public void OnClickResume() {
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        pauseScreen.SetActive(false);
+    }
+
+    public void OnClickMenu() {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 }

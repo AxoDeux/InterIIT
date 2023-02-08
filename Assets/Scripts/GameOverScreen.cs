@@ -25,6 +25,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void OnClickMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
     public void OnClickExit()
@@ -34,6 +35,7 @@ public class GameOverScreen : MonoBehaviour
 
     public void OnClickRestart()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
