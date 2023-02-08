@@ -4176,7 +4176,7 @@ GameObject:
   - component: {fileID: 1154022913}
   - component: {fileID: 1154022912}
   - component: {fileID: 1154022911}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4371,7 +4371,7 @@ GameObject:
   - component: {fileID: 1177744217}
   - component: {fileID: 1177744216}
   - component: {fileID: 1177744215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Stall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4639,6 +4639,93 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1227643259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1227643261}
+  - component: {fileID: 1227643260}
+  m_Layer: 0
+  m_Name: A*
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1227643260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227643259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAMArIexsxVn1XQIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzqVj3EBwb60hpIckTGgnF18Ua401yJJHj/Aa/ntXso0dOj2xfPvt7rcP+Uy4NDXkVumV5uxJMSDfR8Tb5Muodz7CgW6V3PATdJw3zmzpSTRwXqnlCvGJDzOqAqt5/kNuhSdHCDrJC6WrJdtCqow1CBdUGECXVtZHS4TOI3LAn3HiQ45oxffeOqGVRKMLmjlIC7qndsSO1rCczAWtamBeck+e37XsaRxoEptpGdHXuc+uhOCm1ULssQ69prQ2DjtBAuMUewsCfKsl8G1pvc5h8EtRGLCtKE2PC65xRE1W8lM1c6uo2TXKPqhwvk48nQVVTdKnf/zjSXAXWlWPXd1J5GvYkue7V3rMqbGDwQ7hxWfhTu6p2NF3AW8lyGe10spJhk6rnQ91BuJF//faWlpCvuvxRuoN6Or/r8f3cAndH1LBq/cw+bsG2AgV5h2WDxp38wsFh9MwbQpEvYo/Bn7T7fCGWscD18aiq+1SennvymlPJcswM9+Ns6nSEgLciq5BUmGPa0xjb1d44xuUvfE8UP9a2uKtr3sENyEB7vlRdONaq/11WaZU+ycw5YuzgkvoRXvHM84pVVI2FzacSRe2cbqg+SBs6zj7fFokiosoSeLZ7BvMosl0OoZiSqOkuE/mbDqnSUzC7XGJfVKxboS248GtyT65xDvrPiKjlaZ1uHam6X7FT5UajJzLQm1yDSBfmgxX4aCxCL5LtmQcB7QBa7kM+ybnjAiV74Bl10RZ6HR5sJpmfZaM1PxDWY9kJA1fjYx4+HrLaw0fHPa+eJfsQi5/AVBLAwQUAAAICADAKyHsMShPN20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koFRmoGlpZGZmXGqmYGhqaluapppooFlmrmlRYqpRaKlkVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICADAKyHsbMVZ9V0CAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICADAKyHsMShPN20AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1227643261
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227643259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1240298400 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3526148062561421656, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
@@ -5256,7 +5343,7 @@ GameObject:
   - component: {fileID: 1439946421}
   - component: {fileID: 1439946420}
   - component: {fileID: 1439946419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Holi fire wood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
