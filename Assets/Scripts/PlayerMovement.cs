@@ -28,47 +28,66 @@ public class PlayerMovement : MonoBehaviour
     private float tmpSpeed;
     private float infectedSpeed = 2.5f;
 
-    private void Start() {
+    [SerializeField]
+    Animator playerAnim;
+
+    private void Start()
+    {
         tmpSpeed = speed;
+        //playerAnim.GetComponentInChildren<Animator>();
     }
-    private void OnEnable() {
+    private void OnEnable()
+    {
         ToxicZone.PlayerEnterToxicZoneEvent += HandleToxicZoneEffect;
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         ToxicZone.PlayerEnterToxicZoneEvent -= HandleToxicZoneEffect;
     }
 
     void Update()
     {
-        if(isDashing) { return; }
+        if (isDashing) { return; }
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-
+        if (movement.x == 0 && movement.y == 0) playerAnim.SetBool("isWalking", false);
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if(Input.GetButtonDown("Dash") && canDash) {
+        if (Input.GetButtonDown("Dash") && canDash)
+        {
             StartCoroutine(Dash());
         }
-        
+
     }
 
-    private void FixedUpdate() {
-        if(isDashing) {
-            rb.MovePosition(rb.position + movement * dashingPower * Time.fixedDeltaTime);
-            return; 
+    private void FixedUpdate()
+    {
+        if (isDashing)
+        {
+            //rb.MovePosition(rb.position + movement * dashingPower * Time.fixedDeltaTime);
+            MovePlayer(dashingPower);
+            return;
         }
 
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        MovePlayer(speed);
 
-        lookDir = mousePos - rb.position;
+        //lookDir = mousePos - rb.position;
 
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        //float angle = Mathf.Atan2(lookDir.y, lookDir.x)*Mathf.Rad2Deg - 90f;
+        //rb.rotation = angle;
     }
 
-    private IEnumerator Dash() {
+    private void MovePlayer(float speed)
+    {
+        playerAnim.SetBool("isWalking", true);
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+    }
+
+    private IEnumerator Dash()
+    {
         canDash = false;
-        isDashing = true;        
+        isDashing = true;
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
 
@@ -79,11 +98,15 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    public void HandleToxicZoneEffect(bool isInToxicZone) {   //changing speed variable because its used in update methods
-        if(isInToxicZone) {
+    public void HandleToxicZoneEffect(bool isInToxicZone)
+    {   //changing speed variable because its used in update methods
+        if (isInToxicZone)
+        {
             speed = infectedSpeed;
             //deal damage
-        } else {
+        }
+        else
+        {
             speed = tmpSpeed;
 
         }
