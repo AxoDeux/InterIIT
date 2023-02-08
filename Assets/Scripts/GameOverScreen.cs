@@ -9,6 +9,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private TMP_Text t_score;
     [SerializeField] private TMP_Text t_highScore;
     [SerializeField] private TMP_Text t_time;
+    [SerializeField] private GameObject leaderboard;
 
     private void OnEnable()
     {
@@ -25,6 +26,10 @@ public class GameOverScreen : MonoBehaviour
     public void OnClickMenu()
     {
         SceneManager.LoadScene(0);
+    }
+    public void OnClickExit()
+    {
+        leaderboard.SetActive(false);
     }
 
     public void OnClickRestart()

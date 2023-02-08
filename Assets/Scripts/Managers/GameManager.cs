@@ -6,12 +6,18 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
 
-    public static Color[] colorCode = {
-        new Color(63f, 235f, 200f),
-        Color.red,
-        Color.black,
-        Color.blue,
-        Color.grey
+    public static UnityEngine.Color[] colorCode = {
+        new UnityEngine.Color(63/255f, 235/255f, 200/255f),
+        new UnityEngine.Color(229/255f, 204/255f, 102/255f),
+        new UnityEngine.Color(243/255f, 227/255f, 178/255f),
+        new UnityEngine.Color(195/255f, 152/255f, 105/255f),
+        new UnityEngine.Color(182/255f, 179/255f, 213/255f),
+        new UnityEngine.Color(195/255f, 152/255f, 105/255f),
+        new UnityEngine.Color(237/255f, 235/255f, 125/255f)
+        //Color.red,
+        //Color.black,
+        //Color.blue,
+        //Color.grey
 };
     [SerializeField]
     SpriteRenderer gunSprite;
@@ -63,6 +69,7 @@ public class GameManager : MonoBehaviour
     public static Color ChooseRandomColor()
     {
         int rnd = Random.Range(0, GameManager.colorCode.Length);
+        //Debug.Log($"Color chosen {GameManager.colorCode[rnd]}");
         return GameManager.colorCode[rnd];
     }
 

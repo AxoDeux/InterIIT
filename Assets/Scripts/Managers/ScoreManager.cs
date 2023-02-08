@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -190,6 +191,9 @@ public class ScoreManager : MonoBehaviour
         //stop all active coroutines and set isDead booleans to true;
         Cursor.visible = true;
         gameOverScreen.SetActive(true);
+        SoundManager.PlaySound(SoundManager.Sound.gameOver);
+        //reload scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
     }
 }

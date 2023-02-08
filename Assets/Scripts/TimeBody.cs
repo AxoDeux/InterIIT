@@ -41,7 +41,7 @@ public class TimeBody : MonoBehaviour
     }
     void Rewind()
     {
-        StartCoroutine("SubtractTimeFromRewindTime");
+        //StartCoroutine("SubtractTimeFromRewindTime");
         if (positions.Count > 0)
         {
             transform.position = positions[0].position;
@@ -54,11 +54,6 @@ public class TimeBody : MonoBehaviour
             StopRewind();
         }
         //if (positions.Count == 0) return;
-    }
-    IEnumerator SubtractTimeFromRewindTime()
-    {
-        yield return new WaitForSeconds(0.1f);
-        rewindTime -= Time.deltaTime;
     }
     void Record()
     {

@@ -2,27 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class SoundManager {
-    public enum Sound {
+public static class SoundManager
+{
+    public enum Sound
+    {
         shoot,
-        hit
+        hit,
+        coin,
+        gameOver,
+        timeRewind
+
     };
 
     private static GameObject oneShotGameObject;
     private static AudioSource oneShotAudioSource;
 
-    public static void PlaySound(Sound sound) {
-        if(oneShotGameObject == null) {
-           oneShotGameObject = new GameObject("Sound");
-           oneShotAudioSource = oneShotGameObject.AddComponent<AudioSource>();
+    public static void PlaySound(Sound sound)
+    {
+        if (oneShotGameObject == null)
+        {
+            oneShotGameObject = new GameObject("Sound");
+            oneShotAudioSource = oneShotGameObject.AddComponent<AudioSource>();
         }
-        
+
         oneShotAudioSource.PlayOneShot(GetAudioClip(sound));
 
     }
 
     //3d sound
-    public static void PlaySound(Sound sound, Vector3 position) {
+    public static void PlaySound(Sound sound, Vector3 position)
+    {
         GameObject soundGameObject = new GameObject("Sound");
         soundGameObject.transform.position = position;
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
@@ -36,9 +45,13 @@ public static class SoundManager {
         Object.Destroy(soundGameObject, audioSource.clip.length);
     }
 
-    private static AudioClip GetAudioClip(Sound sound) {
-        foreach(GameAssets.SoundAudioClip soundAudioClip in GameAssets.Instance.soundAudioClips) {
-            if(soundAudioClip.sound == sound) {
+    private static AudioClip GetAudioClip(Sound sound)
+    {
+        foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.Instance.soundAudioClips)
+        {
+            if (soundAudioClip.sound == sound)
+            {
+                Debug.Log("Found sound");
                 return soundAudioClip.audioClip;
             }
         }

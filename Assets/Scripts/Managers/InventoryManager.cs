@@ -13,17 +13,22 @@ public class InventoryManager : MonoBehaviour
     private int timeCellCount;
     private int coinCount;
 
-    public enum Items {
+    public enum Items
+    {
         none,
         weaponUpgrade,
         timeCell,
         coins,
     };
 
-    private void Awake() {
-        if(Instance!=null && Instance != this) {
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
             Destroy(this);
-        } else {
+        }
+        else
+        {
             Instance = this;
         }
 
@@ -31,24 +36,29 @@ public class InventoryManager : MonoBehaviour
         coinCount = 0;
     }
 
-    public void OnCollectCoin() {
+    public void OnCollectCoin()
+    {
         coinCount++;
+        //SoundManager.PlaySound(SoundManager.Sound.coin);
         t_coins.text = coinCount.ToString();
     }
 
-    public void OnCollectTimeCell() {
+    public void OnCollectTimeCell()
+    {
         timeCellCount++;
         t_timeCell.text = timeCellCount.ToString();
     }
 
-    public void OnClickTimeCell() {
+    public void OnClickTimeCell()
+    {
         //subtract time cells or energybar
         t_timeCell.text = timeCellCount.ToString();
         Debug.Log("Rewind time");
     }
 
 
-    public void OnClickCoin() {
+    public void OnClickCoin()
+    {
 
     }
 

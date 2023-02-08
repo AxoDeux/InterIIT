@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float bulletForce;
     [SerializeField] private GameObject gunSprite;
-    [SerializeField] private SpriteRenderer gunSprite2;
+    [SerializeField] private GameObject gunSprite2;
 
     [SerializeField] private Image i_currWeapon;
     [SerializeField] private Image i_nextWeapon;
@@ -94,7 +94,7 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponentInChildren<Rigidbody2D>();
         //shootDir = 
         //RotateGun();
-
+        SoundManager.PlaySound(SoundManager.Sound.shoot);
 
         rb.AddForce(aimDir.normalized * bulletForce, ForceMode2D.Impulse);
     }
@@ -102,10 +102,14 @@ public class Shooting : MonoBehaviour
     private void RotateGun()
     {
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = mousePos - new Vector2(firePoint1.position.x, firePoint1.position.y);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        gunSprite.transform.rotation = Quaternion.Euler(0, 0, angle + 180);
+        gunSprite2.transform.rotation = Quaternion.Euler(0, 0, angle + 180);
         aimDir = mousePos - new Vector2(firePoint1.position.x, firePoint1.position.y);
-        float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg - 90f;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        gunSprite.transform.rotation = Quaternion.Slerp(gunSprite.transform.rotation, rotation, 5f * Time.deltaTime);
+        //float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg - 90f;
+        //Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //gunSprite.transform.rotation = Quaternion.Slerp(gunSprite.transform.rotation, rotation, 5f * Time.deltaTime);
     }
     private void DualShoot()
     {
@@ -115,7 +119,7 @@ public class Shooting : MonoBehaviour
         rb1.AddForce(firePoint1.up * bulletForce, ForceMode2D.Impulse);
 
         GameObject bullet2 = Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-        GameManager.SetColor(bullet2.GetComponentInChildren<SpriteRenderer>(), gunSprite2.color, null);
+        GameManager.SetColor(bullet2.GetComponentInChildren<SpriteRenderer>(), gunSprite2.GetComponent<SpriteRenderer>().color, null);
         Rigidbody2D rb2 = bullet2.GetComponentInChildren<Rigidbody2D>();
         rb2.AddForce(firePoint2.up * bulletForce, ForceMode2D.Impulse);
     }
@@ -143,11 +147,12 @@ public class Shooting : MonoBehaviour
     private void SetGunColour()
     {
         Color color = GameManager.ChooseRandomColor();
+        Debug.Log(color);
         i_currWeapon.color = i_nextWeapon.color;
         i_nextWeapon.color = color;
         i_nextWeapon.fillAmount = 0f;
 
         gunSprite.GetComponent<SpriteRenderer>().color = i_currWeapon.color;
-        gunSprite2.color = i_currWeapon.color;
+        gunSprite2.GetComponent<SpriteRenderer>().color = i_currWeapon.color;
     }
 }
