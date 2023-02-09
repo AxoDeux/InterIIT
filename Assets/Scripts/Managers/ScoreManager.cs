@@ -9,7 +9,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
 
-    private const float MAX_INFECTION = 1000f;
+    [SerializeField]
+    private const float MAX_INFECTION = 100f;
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text scoreText;
@@ -20,7 +21,7 @@ public class ScoreManager : MonoBehaviour
 
 
     private int score;
-    public int highScore = 0;
+    private int highScore = 0;
     private Dictionary<Enemy.EnemyType, int> EnemyToPointsMap;
 
     private float time = 0f;
@@ -35,9 +36,9 @@ public class ScoreManager : MonoBehaviour
     private void Awake()
     {
 
-        if (!PlayerPrefs.HasKey("HIGHSCORE"))
+        if (!PlayerPrefs.HasKey(GameManager.name))
         {
-            PlayerPrefs.SetInt("HIGHSCORE", 0);
+            PlayerPrefs.SetInt(GameManager.name, 0);
         }
 
         if (Instance != null && Instance != this)
@@ -168,7 +169,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (currScore > PlayerPrefs.GetInt("HIGHSCORE"))
         {
-            PlayerPrefs.SetInt("HIGHSCORE", currScore);
+            PlayerPrefs.SetInt(GameManager.name, currScore);
             highScore = PlayerPrefs.GetInt("HIGHSCORE");
             Debug.Log($"Highscore is {highScore}");
             PlayerPrefs.Save();
@@ -196,7 +197,7 @@ public class ScoreManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         SoundManager.PlaySound(SoundManager.Sound.gameOver);
         gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
-        HighScoreTable.AddHighScoreEntry(PlayerPrefs.GetInt("HIGHSCORE"), PlayerPrefs.GetString("PLAYER_NAME"));
+        HighScoreTable.AddHighScoreEntry(PlayerPrefs.GetInt(GameManager.name), GameManager.name);
     }
 
     public void OnClickPause()

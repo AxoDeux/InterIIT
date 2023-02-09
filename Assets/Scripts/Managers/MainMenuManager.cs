@@ -70,7 +70,9 @@ public class MainMenuManager : MonoBehaviour
         //save name for leaderboard
         playerName.text = name.text;
 
-        //PlayerPrefs.SetInt(name.text, PlayerPrefs.GetInt(name.text));
+        GameManager.name = name.text;
+
+        PlayerPrefs.SetInt(name.text, PlayerPrefs.GetInt(GameManager.name));
         PlayerPrefs.Save();
         inputField.SetActive(false);
     }
