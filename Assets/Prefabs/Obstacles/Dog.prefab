@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7397224385908866168}
   - component: {fileID: 7778615794449488067}
   - component: {fileID: 5381071447530006702}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

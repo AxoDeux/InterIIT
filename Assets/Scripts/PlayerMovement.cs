@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -30,11 +31,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     Animator playerAnim;
+    [SerializeField] private Canvas worldCanvas;
+    [SerializeField] private Light2D light2D;
 
     private void Start()
     {
         tmpSpeed = speed;
         playerAnim.GetComponentInChildren<Animator>();
+        worldCanvas.worldCamera = cam;
     }
     private void OnEnable()
     {
@@ -89,10 +93,12 @@ public class PlayerMovement : MonoBehaviour
         canDash = false;
         isDashing = true;
         tr.emitting = true;
+        light2D.intensity = Mathf.Lerp(1, 0, dashingTime);
         yield return new WaitForSeconds(dashingTime);
 
         tr.emitting = false;
         isDashing = false;
+        light2D.intensity = Mathf.Lerp(0, 1, dashingCooldown);
         yield return new WaitForSeconds(dashingCooldown);
 
         canDash = true;
