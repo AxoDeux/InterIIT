@@ -10,7 +10,12 @@ public static class SoundManager
         hit,
         coin,
         gameOver,
-        timeRewind
+        timeRewind,
+        UIButtonWood,
+        UIButtonScifi,
+        UICloseButton,
+        UIClick,
+        WaveStart
 
     };
 

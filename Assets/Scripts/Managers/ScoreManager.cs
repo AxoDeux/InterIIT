@@ -246,6 +246,7 @@ public class ScoreManager : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.visible = true;
         pauseScreen.SetActive(true);
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonScifi);
     }
 
     public void OnClickResume()
@@ -253,11 +254,17 @@ public class ScoreManager : MonoBehaviour
         Time.timeScale = 1f;
         Cursor.visible = false;
         pauseScreen.SetActive(false);
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonScifi);
     }
 
     public void OnClickMenu()
     {
         Time.timeScale = 1f;
+        SoundManager.PlaySound(SoundManager.Sound.UICloseButton) ;
+        Invoke(nameof(LoadLevel), 1f);
+    }
+
+    private void LoadLevel() {
         SceneManager.LoadScene(0);
     }
 }

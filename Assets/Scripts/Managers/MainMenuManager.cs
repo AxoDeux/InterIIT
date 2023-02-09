@@ -60,9 +60,7 @@ public class MainMenuManager : MonoBehaviour
                 //load options screen
                 break;
             case MenuButtonType.leaderboard:
-                {
-                    Leaderboard.SetActive(true);
-                }
+                Leaderboard.SetActive(true);
                 break;
             case MenuButtonType.quit:
                 Application.Quit();
@@ -73,6 +71,7 @@ public class MainMenuManager : MonoBehaviour
     public void OnClickEditName()
     {
         inputField.SetActive(true);
+        SoundManager.PlaySound(SoundManager.Sound.UIClick);
     }
 
     public void OnEndEditName(TMP_Text name)
@@ -85,21 +84,25 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt(name.text, PlayerPrefs.GetInt(GameManager.name));
         PlayerPrefs.Save();
         inputField.SetActive(false);
+        SoundManager.PlaySound(SoundManager.Sound.UIClick);
     }
 
     public void OnClickNext() {
         CloseInstruction(h2pNum);
         h2pNum++;
         SetInstruction(h2pNum);
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonWood);
     }
     public void OnClickBack() {
         CloseInstruction(h2pNum);
         h2pNum--;
         SetInstruction(h2pNum);
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonWood);
     }
 
     public void OnClickClose() {
         howToPlay.SetActive(false);
+        SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
     }
 
     private void SetInstruction(int num) {

@@ -103,20 +103,25 @@ public class StoryBoardManager : MonoBehaviour {
         } else if(sceneNum == 2) {
             backButton.SetActive(true);
         }
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonWood);
     }
 
     public void OnClickBack() {
         CloseScene(sceneNum);
         sceneNum--;
         ChangeScene(sceneNum);
+
         if(sceneNum == 1) {
             backButton.SetActive(false);
         } else if(sceneNum == 3) {
             nextButton.SetActive(true);
         }
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonWood);
     }
 
     public void OnClickMenu() {
+        SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
+
         CloseScene(sceneNum);
         sceneNum = 1;
         mainMenuCanvas.SetActive(true);

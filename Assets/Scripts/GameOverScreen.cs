@@ -28,16 +28,27 @@ public class GameOverScreen : MonoBehaviour
     public void OnClickMenu()
     {
         Time.timeScale = 1;
+        SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
+        Invoke(nameof(LoadLevel), 1f);
+    }
+    private void LoadLevel() {
         SceneManager.LoadScene(0);
     }
+
     public void OnClickExit()
     {
         leaderboard.SetActive(false);
+        SoundManager.PlaySound(SoundManager.Sound.UIClick);
     }
 
     public void OnClickRestart()
     {
         Time.timeScale = 1;
+        SoundManager.PlaySound(SoundManager.Sound.UIButtonScifi);
+        Invoke(nameof(ReloadScene), 1f);
+    }
+
+    private void ReloadScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

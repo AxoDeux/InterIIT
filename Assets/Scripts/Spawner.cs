@@ -103,6 +103,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(waitStartTime);
 
         currWave = Wave.wave1;
+        SoundManager.PlaySound(SoundManager.Sound.WaveStart);
         Spawn();
         yield return new WaitForSeconds(wave1Time);
 
@@ -110,6 +111,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(waitStartTime);
 
         currWave = Wave.wave2;
+        SoundManager.PlaySound(SoundManager.Sound.WaveStart);
         Spawn();
         yield return new WaitForSeconds(wave2Time);
 
@@ -117,6 +119,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(waitStartTime);
 
         currWave = Wave.wave3;
+        SoundManager.PlaySound(SoundManager.Sound.WaveStart);
         Spawn();
         yield return new WaitForSeconds(wave3Time);
     }
