@@ -552,6 +552,7 @@ MonoBehaviour:
   enemyColoredParts: []
   damage: 10
   hitsRequired: 2
+  splashEffect: {fileID: 4890198324659082732, guid: 02e9e493817b2477ea2e822be48026dc, type: 3}
   type: 2
   rndColor: {r: 0, g: 0, b: 0, a: 0}
   explosionDist: 2
@@ -684,6 +685,7 @@ MonoBehaviour:
   - {fileID: 3458488668156560518}
   damage: 10
   hitsRequired: 1
+  splashEffect: {fileID: 4890198324659082732, guid: 02e9e493817b2477ea2e822be48026dc, type: 3}
   type: 2
   rndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1562505148000534009
