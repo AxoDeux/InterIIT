@@ -28,14 +28,14 @@ public class HighScoreTable : MonoBehaviour
         //AddHighScoreEntry(10000, "sarvo");
         //AddHighScoreEntry(100, "sarvo");
 
-        highScoreEntryList = new List<HighScoreEntry>()
-        {
-            //new HighScoreEntry{ name = "sarvo", score = 1000},
-            //new HighScoreEntry{ name = "ishan", score = 3000},
-            //new HighScoreEntry{ name = "rahul", score = 2000},
+        //highScoreEntryList = new List<HighScoreEntry>()
+        //{
+        //new HighScoreEntry{ name = "sarvo", score = 1000},
+        //new HighScoreEntry{ name = "ishan", score = 3000},
+        //new HighScoreEntry{ name = "rahul", score = 2000},
 
 
-        };
+        //};
 
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
