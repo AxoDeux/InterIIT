@@ -58,10 +58,12 @@ public class Shooting : MonoBehaviour
         //gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         shootingMode = ShootingMode.Single;
     }
-
+    private void FixedUpdate() {
+        RotateGun(shootingMode);
+    }
     private void Update()
     {
-        RotateGun(shootingMode);
+        
         if (Input.GetButton("Fire1"))
         {
             if (EventSystem.current.IsPointerOverGameObject()) return;

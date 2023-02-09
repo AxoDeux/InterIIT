@@ -15,23 +15,7 @@ public class TimeBody : MonoBehaviour
     {
         positions = new List<TimeStamp>();
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && GameManager.canRewind)
-        {
-            //GameManager.OnStartRewinding?.Invoke();
 
-            StartRewind();
-
-
-        }
-        if (Input.GetKeyUp(KeyCode.E) && GameManager.isRewinding)
-        {
-            StopRewind();
-            //GameManager.OnStopRewinding?.Invoke();
-        }
-
-    }
     private void FixedUpdate()
     {
         if (GameManager.isRewinding)
@@ -41,7 +25,6 @@ public class TimeBody : MonoBehaviour
     }
     void Rewind()
     {
-        //StartCoroutine("SubtractTimeFromRewindTime");
         if (positions.Count > 0)
         {
             transform.position = positions[0].position;
@@ -51,9 +34,8 @@ public class TimeBody : MonoBehaviour
         }
         else
         {
-            StopRewind();
+            GameManager.StopRewind();
         }
-        //if (positions.Count == 0) return;
     }
     void Record()
     {
@@ -65,20 +47,5 @@ public class TimeBody : MonoBehaviour
         positions.Insert(0, new TimeStamp(transform.position, transform.rotation));
     }
 
-
-    public void StopRewind()
-    {
-        GameManager.isRewinding = false;
-        GameManager.canRewind = false;
-        rewindTime = GameManager.rewindTime;
-        StopCoroutine("SubtractTimeFromRewindTime");
-        ScoreManager.Instance.OnBatteryDischarged();
-        //Stop
-    }
-
-    public void StartRewind()
-    {
-        GameManager.isRewinding = true;
-    }
 
 }

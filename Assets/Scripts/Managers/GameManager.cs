@@ -42,6 +42,26 @@ public class GameManager : MonoBehaviour
         isRewinding = false;
     }
 
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.E) && canRewind) {
+            StartRewind();
+        }
+        if(Input.GetKeyUp(KeyCode.E) && isRewinding) {
+            StopRewind();
+        }
+    }
+
+    private void StartRewind() {
+        isRewinding = true;
+        PostProcessingManager.Instance.TimeRewinding();
+    }
+
+    public static void StopRewind() {
+        isRewinding = false;
+        canRewind = false;
+        ScoreManager.Instance.OnBatteryDischarged();
+        PostProcessingManager.Instance.ResetVignette();
+    }
 
     public void StartColorChoosingSequence(SpriteRenderer sprite)
     {

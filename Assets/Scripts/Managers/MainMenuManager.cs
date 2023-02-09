@@ -17,6 +17,17 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private GameObject storyBoard;
 
+    [Header("How to play")]
+    [SerializeField] private GameObject howToPlay;
+    [SerializeField] private GameObject controls;
+    [SerializeField] private GameObject enemies;
+    [SerializeField] private GameObject collectibles;
+    [SerializeField] private GameObject next;
+    [SerializeField] private GameObject back;
+
+
+    private int h2pNum;
+
 
     public enum MenuButtonType
     {
@@ -28,6 +39,7 @@ public class MainMenuManager : MonoBehaviour
         quit
     };
 
+
     public void OnDestroyButton(MenuButtonType type)
     {
         switch (type)
@@ -36,7 +48,9 @@ public class MainMenuManager : MonoBehaviour
                 SceneManager.LoadScene(1);
                 break;
             case MenuButtonType.howtoplay:
-                //enable how to play canvas
+                howToPlay.SetActive(true);
+                h2pNum = 1;
+                SetInstruction(h2pNum);
                 break;
             case MenuButtonType.story:
                 storyBoard.SetActive(true);
@@ -48,11 +62,7 @@ public class MainMenuManager : MonoBehaviour
             case MenuButtonType.leaderboard:
                 {
                     Leaderboard.SetActive(true);
-
-                    //Debug.Log("We hit leaderboard");
-                    //SoundManager.PlaySound()
                 }
-                //load leaderboard screen
                 break;
             case MenuButtonType.quit:
                 Application.Quit();
@@ -76,4 +86,44 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.Save();
         inputField.SetActive(false);
     }
+
+    public void OnClickNext() {
+        CloseInstruction(h2pNum);
+        h2pNum++;
+        SetInstruction(h2pNum);
+    }
+    public void OnClickBack() {
+        CloseInstruction(h2pNum);
+        h2pNum--;
+        SetInstruction(h2pNum);
+    }
+
+    public void OnClickClose() {
+        howToPlay.SetActive(false);
+    }
+
+    private void SetInstruction(int num) {
+        if(num == 1) {
+            controls.SetActive(true);
+            back.SetActive(false);
+        }else if(num == 2) {
+            enemies.SetActive(true);
+        }else if (num == 3) {
+            collectibles.SetActive(true);
+            next.SetActive(false);
+        }
+    }
+
+    private void CloseInstruction(int num) {
+        if(num == 1) {
+            controls.SetActive(false);
+            back.SetActive(true);
+        } else if(num == 2) {
+            enemies.SetActive(false) ;
+        } else if(num == 3) {
+            collectibles.SetActive(false);
+            next.SetActive(true);
+        }
+    }
+
 }
