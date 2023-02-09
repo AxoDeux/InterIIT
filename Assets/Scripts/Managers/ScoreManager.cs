@@ -196,21 +196,25 @@ public class ScoreManager : MonoBehaviour
         gameOverScreen.SetActive(true);
         SoundManager.PlaySound(SoundManager.Sound.gameOver);
         gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
+        HighScoreTable.AddHighScoreEntry(PlayerPrefs.GetInt("HIGHSCORE"), PlayerPrefs.GetString("PLAYER_NAME"));
     }
 
-    public void OnClickPause() {
+    public void OnClickPause()
+    {
         Time.timeScale = 0f;
         Cursor.visible = true;
         pauseScreen.SetActive(true);
     }
 
-    public void OnClickResume() {
+    public void OnClickResume()
+    {
         Time.timeScale = 1f;
         Cursor.visible = false;
         pauseScreen.SetActive(false);
     }
 
-    public void OnClickMenu() {
+    public void OnClickMenu()
+    {
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }

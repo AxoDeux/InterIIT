@@ -11,6 +11,13 @@ public class HighScoreTable : MonoBehaviour
     private List<Transform> highScoreEntryTransformList;
 
 
+    //stores highscores
+    public static Dictionary<string, int> ScoreTable
+        = new Dictionary<string, int>
+        {
+
+        };
+
     private void Awake()
     {
         entryContainer = transform.Find("HighScoreEntryContainer");
@@ -18,37 +25,49 @@ public class HighScoreTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
+        //AddHighScoreEntry(10000, "sarvo");
+        //AddHighScoreEntry(100, "sarvo");
+
         highScoreEntryList = new List<HighScoreEntry>()
         {
-            //new HighScoreEntry("sahil", 1934),
-            //new HighScoreEntry("ishan", 3246),
-            //new HighScoreEntry("rahul", 2245),
-            
-            new HighScoreEntry(PlayerPrefs.GetString("PLAYER_NAME") + "*", PlayerPrefs.GetInt("HIGHSCORE"))
+            //new HighScoreEntry{ name = "sarvo", score = 1000},
+            //new HighScoreEntry{ name = "ishan", score = 3000},
+            //new HighScoreEntry{ name = "rahul", score = 2000},
+
+
         };
+
+
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
         highScoreEntryTransformList = new List<Transform>();
 
         //Sort entry list
-        for (int i = 0; i < highScoreEntryList.Count; i++)
+        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)
         {
-            for (int j = i + 1; j < highScoreEntryList.Count; j++)
+            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
             {
-                if (highScoreEntryList[j].Score > highScoreEntryList[i].Score)
+                if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score)
                 {
                     //swap
-                    HighScoreEntry tmp = highScoreEntryList[i];
-                    highScoreEntryList[i] = highScoreEntryList[j];
-                    highScoreEntryList[j] = tmp;
+                    HighScoreEntry tmp = highscores.highscoreEntryList[i];
+                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
+                    highscores.highscoreEntryList[j] = tmp;
                 }
             }
         }
 
 
-        foreach (HighScoreEntry highScoreEntry in highScoreEntryList)
+        foreach (HighScoreEntry highScoreEntry in highscores.highscoreEntryList)
         {
             CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
         }
-        //PlayerPrefs.SetString
+
+        //Highscores highscore = new Highscores { highscoreEntryList = highScoreEntryList };
+        //string json = JsonUtility.ToJson(highscore);
+        //PlayerPrefs.SetString("highscoreTable", json);
+        //PlayerPrefs.Save();
+        //PlayerPrefs.GetString("highscoreTable");
     }
     private void CreateHighScoreEntryTransform(HighScoreEntry highScoreEntry,
         Transform container, List<Transform> transformList)
@@ -71,40 +90,74 @@ public class HighScoreTable : MonoBehaviour
             case 3: rankString = "3RD"; break;
         }
         entryTransform.Find("posText").GetComponent<TextMeshProUGUI>().text = rankString;
-        int score = highScoreEntry.Score;
+        int score = highScoreEntry.score;
 
         entryTransform.Find("scoreText").GetComponent<TextMeshProUGUI>().text = score.ToString();
 
-        string name = highScoreEntry.Name;
+        string name = highScoreEntry.name;
         entryTransform.Find("nameText").GetComponent<TextMeshProUGUI>().text = name;
 
         transformList.Add(entryTransform);
     }
-
-    private class HighScoreEntry
+    public static void AddHighScoreEntry(int score, string name)
     {
-        int score;
-        string name;
+        //Create highscore entry
+        HighScoreEntry highscoreEntry = new HighScoreEntry { score = score, name = name };
 
-        public int Score
+        //load saved highscore
+        string jsonString = PlayerPrefs.GetString("highscoreTable");
+        Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
+
+        bool entryPresent = false;
+        //add new entry
+        foreach (var item in highscores.highscoreEntryList)
         {
-            get
+            //if name is present update it
+            if (item.name == name)
             {
-                return score;
+                if (score > item.score)
+                    item.score = score;
+                entryPresent = true;
+                break;
             }
         }
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
-        public HighScoreEntry(string name, int score)
-        {
-            this.score = score;
-            this.name = name;
-        }
+
+        if (!entryPresent) highscores.highscoreEntryList.Add(highscoreEntry);
+
+        //save updated
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("highscoreTable", json);
+        PlayerPrefs.Save();
+    }
+    private class Highscores
+    {
+        public List<HighScoreEntry> highscoreEntryList;
+    }
+    [System.Serializable]
+    public class HighScoreEntry
+    {
+        public int score;
+        public string name;
+
+        //public int Score
+        //{
+        //    get
+        //    {
+        //        return score;
+        //    }
+        //}
+        //public string Name
+        //{
+        //    get
+        //    {
+        //        return name;
+        //    }
+        //}
+        //public HighScoreEntry(string name, int score)
+        //{
+        //    this.score = score;
+        //    this.name = name;
+        //}
 
     }
 }
