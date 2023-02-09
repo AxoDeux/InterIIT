@@ -20,6 +20,8 @@ public class EnemyShooting : Enemy
     public GameObject gunRb;
 
     private bool canShoot = true;
+
+    public Transform bulletParent;
     private void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -35,6 +37,7 @@ public class EnemyShooting : Enemy
     {
         canShoot = false;
         bullet = Instantiate(enemyBulletPrefab, firePoint);
+        bullet.transform.parent = bulletParent;
         bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
 
@@ -46,5 +49,12 @@ public class EnemyShooting : Enemy
         Vector3 direction = (target.position - transform.position).normalized;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         gunRb.transform.rotation = Quaternion.Euler(0, 0, angle);
+        if(angle < -90 || angle > 90) {
+            if(direction.x < 0) {
+                gunRb.transform.localRotation = Quaternion.Euler(180, 0, -angle);
+            } else if(direction.x > 0) {
+                gunRb.transform.localRotation = Quaternion.Euler(180, 180, -angle);
+            }
+        }
     }
 }
