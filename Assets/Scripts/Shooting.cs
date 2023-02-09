@@ -148,6 +148,9 @@ public class Shooting : MonoBehaviour
         GameManager.SetColor(bullet2.GetComponentInChildren<SpriteRenderer>(), gunSprite2.GetComponent<SpriteRenderer>().color, null);
         Rigidbody2D rb2 = bullet2.GetComponentInChildren<Rigidbody2D>();
         rb2.AddForce(aimDir * bulletForce, ForceMode2D.Impulse);
+        SoundManager.PlaySound(SoundManager.Sound.shoot);
+        SoundManager.PlaySound(SoundManager.Sound.shoot);
+
     }
 
     public void ChangeShootingMode(ShootingMode mode)

@@ -211,7 +211,7 @@ Transform:
   - {fileID: 3076721083227419048}
   - {fileID: 6399144394439842219}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &924298606377887581
 MonoBehaviour:
@@ -282,7 +282,7 @@ MonoBehaviour:
   rndColor: {r: 0, g: 0, b: 0, a: 0}
   firePoint: {fileID: 3067326029118935079}
   enemyBulletPrefab: {fileID: 3126202580475667995, guid: 2e6f52d785d2ab14dab0b243529e47a5, type: 3}
-  bulletForce: 1000
+  bulletForce: 2
   target: {fileID: 0}
   gunRb: {fileID: 2541869319366961617}
   bulletParent: {fileID: 0}
