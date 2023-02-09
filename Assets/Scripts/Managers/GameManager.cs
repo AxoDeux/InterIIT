@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     SpriteRenderer gunSprite;
 
+    //time of effects
+    public static float lifetime = 1f;
     public static string name = "Player";
 
 

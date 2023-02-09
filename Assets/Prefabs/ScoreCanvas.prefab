@@ -392,13 +392,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4bbf7d6bc3aad4883b0b5a7ce85cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MAX_INFECTION: 100
+  MAX_INFECTION: 1000
   timeText: {fileID: 6668466631724580964}
   scoreText: {fileID: 608380189927798455}
   i_timeBattery: {fileID: 8507908309700107162}
   i_infectionBar: {fileID: 6534518494908498050}
   gameOverScreen: {fileID: 9069816146051639911}
   pauseScreen: {fileID: 8947219844471496094}
+  damagePopUp: {fileID: 7279660732476620147, guid: ab1bbc1323030405a8b2d5876f48aac6, type: 3}
+  scorePopUp: {fileID: 7279660732476620147, guid: 5bbd04ac1de0744ffa778878722965bb, type: 3}
 --- !u!1 &1169315943443304928
 GameObject:
   m_ObjectHideFlags: 0

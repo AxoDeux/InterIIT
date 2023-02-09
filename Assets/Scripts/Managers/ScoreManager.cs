@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject pauseScreen;
 
+    [SerializeField] private GameObject damagePopUp;
+    [SerializeField] private GameObject scorePopUp;
+
+
 
     private int score;
     private int highScore = 0;
@@ -32,6 +37,7 @@ public class ScoreManager : MonoBehaviour
 
     private float timer15 = 15f;
     private float timer60 = 60f;
+    Transform target;
 
     private void Awake()
     {
@@ -68,6 +74,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         SetClockTime();
         SetScore();
         if (i_timeBattery.fillAmount >= 1f)
@@ -145,6 +152,10 @@ public class ScoreManager : MonoBehaviour
     public void DealDamage(float damage)
     {
         i_infectionBar.fillAmount += damage / MAX_INFECTION;
+        //damage
+        //GameObject dmgPopUp = Instantiate(damagePopUp, target.position, Quaternion.identity);
+        //dmgPopUp.GetComponentInChildren<TextMeshProUGUI>().text = "-" + damage.ToString();
+        InstantiateEffeect(damagePopUp, (int)damage, "-");
         if (i_infectionBar.fillAmount >= 1)
         {
             OnGameOver();
@@ -158,13 +169,27 @@ public class ScoreManager : MonoBehaviour
         switch (type)
         {
             case Enemy.EnemyType.Contagious:
-                score += EnemyToPointsMap[Enemy.EnemyType.Contagious];
+                {
+                    int inc = EnemyToPointsMap[Enemy.EnemyType.Contagious];
+                    score += inc;
+                    InstantiateEffeect(scorePopUp, inc, "+");
+                }
                 break;
             case Enemy.EnemyType.Shooter:
-                score += EnemyToPointsMap[Enemy.EnemyType.Shooter];
+                {
+                    int inc = EnemyToPointsMap[Enemy.EnemyType.Shooter];
+                    score += inc;
+                    InstantiateEffeect(scorePopUp, inc, "+");
+
+                }
                 break;
             case Enemy.EnemyType.Bomber:
-                score += EnemyToPointsMap[Enemy.EnemyType.Bomber];
+                {
+                    int inc = EnemyToPointsMap[Enemy.EnemyType.Bomber];
+                    score += inc;
+                    InstantiateEffeect(scorePopUp, inc, "+");
+
+                }
                 break;
         }
     }
@@ -172,6 +197,13 @@ public class ScoreManager : MonoBehaviour
     private void TimeScoreIncrease(int scoreIncrease)
     {
         score += scoreIncrease;
+        InstantiateEffeect(scorePopUp, scoreIncrease, "+");
+    }
+
+    private void InstantiateEffeect(GameObject gameObj, int score, string mlplr)
+    {
+        GameObject tmp = Instantiate(gameObj, target.position, Quaternion.identity);
+        tmp.GetComponentInChildren<TextMeshProUGUI>().text = mlplr + score.ToString();
     }
 
     private void SetScore()
