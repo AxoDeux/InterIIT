@@ -187,3 +187,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0021780133, y: 0.3060245}
   m_Size: {x: 1.0761148, y: 1.9753834}
   m_Direction: 0
+--- !u!210 &3896143703559407172
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047528444174211978}
+  m_Enabled: 1
+  m_SortingLayerID: 122393891
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
