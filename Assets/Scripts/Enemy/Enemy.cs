@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
         else if (collision.gameObject.CompareTag("Player"))
         {
             ScoreManager.Instance.DealDamage(damage);
+            PostProcessingManager.Instance.PlayerHurting();
         }
     }
 }

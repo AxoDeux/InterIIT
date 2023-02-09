@@ -24,6 +24,7 @@ public class ToxicZone : MonoBehaviour
         if(collision.gameObject.CompareTag("Player")) {
             if(currTime > damageInterval) {
                 ScoreManager.Instance.DealDamage(damage);
+                PostProcessingManager.Instance.PlayerHurting();
                 currTime = 0f;
             } else {
                 currTime += Time.deltaTime;
