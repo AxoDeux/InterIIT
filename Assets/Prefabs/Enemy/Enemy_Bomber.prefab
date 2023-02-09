@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 261888513902946493}
   - component: {fileID: 6823625179047002549}
   - component: {fileID: 8681122297246255178}
+  - component: {fileID: 2176200594136923139}
   m_Layer: 6
   m_Name: Enemy_Bomber
   m_TagString: Untagged
@@ -495,6 +496,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!210 &2176200594136923139
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938035857303046850}
+  m_Enabled: 1
+  m_SortingLayerID: 122393891
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1001 &1562505148000534009
 PrefabInstance:
   m_ObjectHideFlags: 0
