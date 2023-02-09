@@ -7,7 +7,7 @@ public class TimeBody : MonoBehaviour
 
     bool isRewinding = false;
 
-    public float recordTime = 10f;
+    public float recordTime = 5f;
 
     List<PointInTime> pointsInTime;
 
@@ -45,6 +45,7 @@ public class TimeBody : MonoBehaviour
             transform.position = pointInTime.position;
             transform.rotation = pointInTime.rotation;
             pointsInTime.RemoveAt(0);
+            SoundManager.PlaySound(SoundManager.Sound.timeRewind);
         }
         else
         {
