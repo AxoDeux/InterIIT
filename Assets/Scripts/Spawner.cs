@@ -86,6 +86,8 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemy) {
         foreach(var item in spawnPoints) {
+            int rnd = Random.Range(1, 5);
+            if(rnd < 4) continue;                       // 1/4 probability of spawning
             GameObject newGameObject = Instantiate(enemy, item.transform.position, transform.rotation);
             newGameObject.transform.parent = enemyParent;
         }
