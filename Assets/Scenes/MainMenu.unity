@@ -273,12 +273,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6645119625462135236, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6645119625462135239, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
       propertyPath: leaderboard
       value: 
       objectReference: {fileID: 825159897}
+    - target: {fileID: 6645119626003376628, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.43921572
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645119626003376628, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645119626003376628, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8941177
+      objectReference: {fileID: 0}
     - target: {fileID: 6645119626003376633, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
       propertyPath: m_Name
       value: ExitButton
@@ -294,6 +306,14 @@ PrefabInstance:
     - target: {fileID: 6645119626003376635, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
       propertyPath: m_Colors.m_NormalColor.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645119626003376635, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 0.5529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6645119626003376635, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.a
+      value: 0.3254902
       objectReference: {fileID: 0}
     - target: {fileID: 6645119626003376635, guid: 0d8dbeba7170c4b5bb8154697db0e85b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName

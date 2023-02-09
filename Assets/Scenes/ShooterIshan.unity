@@ -3797,11 +3797,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ffbc6e3c3678714b86f8958bebd794e, type: 3}
---- !u!95 &1290974321 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2358215193460582630, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-  m_PrefabInstance: {fileID: 6560471338138625099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1296853446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,11 +5507,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1787974955 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2164747088763841478, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-  m_PrefabInstance: {fileID: 6560471338138625099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1804146432
 GameObject:
   m_ObjectHideFlags: 0
@@ -6367,58 +6357,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1315237639339133688, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 2164747088763841478, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829116677603529046, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829116677603529046, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932694918427798695, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932694918427798695, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316574793541287600, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4316574793541287600, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 5473144309548473720, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5473144309548473720, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 5473144309548473720, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.64
-      objectReference: {fileID: 0}
     - target: {fileID: 6560471337790743285, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6560471337790743285, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: playerAnim
-      value: 
-      objectReference: {fileID: 1290974321}
     - target: {fileID: 6560471337790743286, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6467,26 +6409,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7459214959867279633, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4d1e6eb0e608a4ad6b898c55125f9665, type: 3}
-    - target: {fileID: 7459214959867279633, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459318000812592354, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 4d1e6eb0e608a4ad6b898c55125f9665, type: 3}
-    - target: {fileID: 7574594047887834148, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: gunSprite2
-      value: 
-      objectReference: {fileID: 1787974955}
-    - target: {fileID: 8752705742978141819, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
