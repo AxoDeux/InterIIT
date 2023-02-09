@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 7823781800703702606}
   - component: {fileID: 272715473240273338}
   - component: {fileID: 6494067162161315046}
+  - component: {fileID: 3322460804632098860}
+  - component: {fileID: 3569942603612969408}
   m_Layer: 0
   m_Name: ToxicZone
   m_TagString: Untagged
@@ -190,6 +192,36 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3322460804632098860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417756006925026697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c94ab4bf7c5abc46a331407e0a35a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damageInterval: 1
+--- !u!58 &3569942603612969408
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417756006925026697}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.011807442}
+  serializedVersion: 2
+  m_Radius: 1.1313102
 --- !u!1 &2158430314855153252
 GameObject:
   m_ObjectHideFlags: 0

@@ -162,6 +162,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+    public void HealInfection(float amount) {
+        i_infectionBar.fillAmount -= amount / MAX_INFECTION;
+        InstantiateEffeect(scorePopUp, (int)amount, "+");
+    }
+
     public void OnKillEnemy(Enemy.EnemyType type)
     {
         //update score as per enemy type

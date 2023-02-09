@@ -24,13 +24,18 @@ public class SpawnCollectibles : MonoBehaviour
         int count = spawnPoints.Count;
         int rndPosNum = Random.Range(0, count);
 
+        float rndX = Random.Range(-3f, 3f);
+        float rndY = Random.Range(-3f, 3f);
+
+        Vector3 offset = new Vector3(rndX, rndY);
+
         int rndNum = Random.Range(1, 11);
         if(rndNum < 4) {
-            Instantiate(collectibles[0], spawnPoints[rndPosNum]);
+            Instantiate(collectibles[0], spawnPoints[rndPosNum].position + offset, Quaternion.identity, spawnPoints[rndPosNum]);
         }else if (rndNum > 7) {
-            Instantiate(collectibles[2], spawnPoints[rndPosNum]);
+            Instantiate(collectibles[2], spawnPoints[rndPosNum].position + offset, Quaternion.identity, spawnPoints[rndPosNum]);
         } else {
-            Instantiate(collectibles[1], spawnPoints[rndPosNum]);
+            Instantiate(collectibles[1], spawnPoints[rndPosNum].position + offset, Quaternion.identity, spawnPoints[rndPosNum]);
         }
     }
 }

@@ -6,6 +6,7 @@ public class EnemyBomber : Enemy
 {
     [SerializeField] private float explosionDist;
     [SerializeField] private GameObject toxicZone;
+
     private EnemyFollow followScript;
     private TimeBody timeScript;
     private GameObject player;
@@ -36,9 +37,11 @@ public class EnemyBomber : Enemy
         timeScript.enabled = false;
         followScript.enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
+        toxicZone.GetComponent<Animator>().SetBool("shouldBlast", true);
 
         yield return new WaitForSeconds(5f);
         toxicZone.SetActive(false);
+        toxicZone.GetComponent<Animator>().SetBool("shouldBlast", false);
 
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
