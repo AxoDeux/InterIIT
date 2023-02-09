@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get; private set; }
 
     [SerializeField]
-    private const float MAX_INFECTION = 100f;
+    private float MAX_INFECTION = 100f;
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text scoreText;
@@ -179,11 +179,11 @@ public class ScoreManager : MonoBehaviour
     }
     void SetHighScore(int currScore)
     {
+        //Debug.Log($"for {PlayerPrefs.GetInt(GameManager.name)} Highscore is {}");
         if (currScore > PlayerPrefs.GetInt(GameManager.name))
         {
             PlayerPrefs.SetInt(GameManager.name, currScore);
             highScore = PlayerPrefs.GetInt(GameManager.name);
-            Debug.Log($"Highscore is {highScore}");
             PlayerPrefs.Save();
         }
     }
@@ -196,7 +196,8 @@ public class ScoreManager : MonoBehaviour
         Cursor.visible = true;
         gameOverScreen.SetActive(true);
         SoundManager.PlaySound(SoundManager.Sound.gameOver);
-        gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, highScore, timeText.text);
+        //high
+        gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, PlayerPrefs.GetInt(GameManager.name), timeText.text);
         HighScoreTable.AddHighScoreEntry(PlayerPrefs.GetInt(GameManager.name), GameManager.name);
     }
 

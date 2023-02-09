@@ -144,8 +144,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cada7cc34a0a84d718d0028055ba3992
-      internalID: 1268609200
+      spriteID: fc2f6a579f3c343ffa727b87866b30cb
+      internalID: 1194360465
       vertices: []
       indices: 
       edges: []
@@ -165,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98b603d49bc3e455c9ef1c3d2d311572
-      internalID: -1565600494
+      spriteID: 62a24f64d5feb4af89092ae0b48f31be
+      internalID: 226548488
       vertices: []
       indices: 
       edges: []
@@ -186,8 +186,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 301f0b6228b4a462ab55326fecfef692
-      internalID: 353502801
+      spriteID: 6cff126a4ef974141b142ba662bdcf27
+      internalID: 1752788369
       vertices: []
       indices: 
       edges: []
@@ -207,8 +207,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cbb72272f81b4db7a93682a5cf468e3
-      internalID: -1826931903
+      spriteID: 53656143e26eb45f38db07e40b6ac4ad
+      internalID: -2119937824
       vertices: []
       indices: 
       edges: []
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5c24652fb9174ebaab69a1da9665895
-      internalID: -1872608316
+      spriteID: 6268965c1cbfa421c8120e07eafd3a71
+      internalID: -158397043
       vertices: []
       indices: 
       edges: []
@@ -249,8 +249,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43e04f022c4504babbf25c2945c26256
-      internalID: 2091716165
+      spriteID: 9288a6e11c2b645d4a0439d4f19514ec
+      internalID: 533777279
       vertices: []
       indices: 
       edges: []
@@ -266,12 +266,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_bomber_5: 2091716165
-      enemy_bomber_0: 1268609200
-      enemy_bomber_1: -1565600494
-      enemy_bomber_4: -1872608316
-      enemy_bomber_3: -1826931903
-      enemy_bomber_2: 353502801
+      enemy_bomber_5: 533777279
+      enemy_bomber_0: 1194360465
+      enemy_bomber_1: 226548488
+      enemy_bomber_4: -158397043
+      enemy_bomber_3: -2119937824
+      enemy_bomber_2: 1752788369
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

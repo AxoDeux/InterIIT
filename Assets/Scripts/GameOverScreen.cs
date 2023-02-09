@@ -20,8 +20,8 @@ public class GameOverScreen : MonoBehaviour
 
     public void SetScores(int score, int highScore, string time)
     {
-        t_score.text = score.ToString();
-        t_highScore.text = highScore.ToString();
+        t_score.text = "Score: " + score.ToString();
+        t_highScore.text = "HScore:" + highScore.ToString();
         t_time.text = time;
     }
 
