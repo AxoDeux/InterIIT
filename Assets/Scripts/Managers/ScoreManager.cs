@@ -24,7 +24,6 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameObject scorePopUp;
 
 
-
     private int score;
     private int highScore = 0;
     private Dictionary<Enemy.EnemyType, int> EnemyToPointsMap;
@@ -38,6 +37,8 @@ public class ScoreManager : MonoBehaviour
     private float timer15 = 15f;
     private float timer60 = 60f;
     Transform target;
+
+    public static bool isGameOver = false;
 
     private void Awake()
     {
@@ -156,7 +157,7 @@ public class ScoreManager : MonoBehaviour
         //GameObject dmgPopUp = Instantiate(damagePopUp, target.position, Quaternion.identity);
         //dmgPopUp.GetComponentInChildren<TextMeshProUGUI>().text = "-" + damage.ToString();
         InstantiateEffeect(damagePopUp, (int)damage, "-");
-        if (i_infectionBar.fillAmount >= 1)
+        if (i_infectionBar.fillAmount >= 1 && !isGameOver)
         {
             OnGameOver();
         }
@@ -239,6 +240,8 @@ public class ScoreManager : MonoBehaviour
         //high
         gameOverScreen.GetComponent<GameOverScreen>().SetScores(score, PlayerPrefs.GetInt(GameManager.name), timeText.text);
         HighScoreTable.AddHighScoreEntry(PlayerPrefs.GetInt(GameManager.name), GameManager.name);
+
+        isGameOver = true;
     }
 
     public void OnClickPause()
