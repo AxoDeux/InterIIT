@@ -32,7 +32,7 @@ public class Collectible : MonoBehaviour
                     {
                         InventoryManager.Instance.OnCollectTimeCell();
                         ScoreManager.Instance.OnCollectTimeCell();
-                        SoundManager.PlaySound(SoundManager.Sound.timeRewind);
+                        SoundManager.PlaySound(SoundManager.Sound.TimeCellCollect);
 
                     }
                     break;

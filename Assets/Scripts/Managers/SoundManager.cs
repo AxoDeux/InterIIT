@@ -15,15 +15,24 @@ public static class SoundManager
         UIButtonScifi,
         UICloseButton,
         UIClick,
-        WaveStart
+        WaveStart,
+        TimeCellCollect
 
     };
 
     private static GameObject oneShotGameObject;
     private static AudioSource oneShotAudioSource;
 
+    private static Dictionary<Sound, float> soundTimerMap;
+
+    public static void Initialize() {
+        soundTimerMap = new Dictionary<Sound, float>();
+        soundTimerMap[Sound.timeRewind] = 0f;
+    }
+
     public static void PlaySound(Sound sound)
     {
+        if(!CanPlaySound(sound)) return; 
         if (oneShotGameObject == null)
         {
             oneShotGameObject = new GameObject("Sound");
@@ -32,6 +41,27 @@ public static class SoundManager
 
         oneShotAudioSource.PlayOneShot(GetAudioClip(sound));
 
+    }
+
+    private static bool CanPlaySound(Sound sound) {
+        switch(sound) {
+            default:
+                return true;
+
+            case Sound.timeRewind:
+                if(soundTimerMap.ContainsKey(sound)) {
+                    float lastTimePlayed = soundTimerMap[sound];
+                    float rewindTimerMax = 1f;
+                    if(lastTimePlayed + rewindTimerMax < Time.time) {   //check if its time to play the sound
+                        soundTimerMap[sound] = Time.time;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return true;
+                }
+        }
     }
 
     //3d sound

@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     public static bool isRewinding = false;
     public static bool canRewind;
 
+    private void Awake() {
+        SoundManager.Initialize();
+    }
 
     void Start()
     {
