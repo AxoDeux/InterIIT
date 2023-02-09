@@ -392,13 +392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f4bbf7d6bc3aad4883b0b5a7ce85cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MAX_INFECTION: 100
   timeText: {fileID: 6668466631724580964}
   scoreText: {fileID: 608380189927798455}
   i_timeBattery: {fileID: 8507908309700107162}
   i_infectionBar: {fileID: 6534518494908498050}
   gameOverScreen: {fileID: 9069816146051639911}
   pauseScreen: {fileID: 8947219844471496094}
-  highScore: 0
 --- !u!1 &1169315943443304928
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,8 +913,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141, y: -17}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: -102.48802, y: -22}
+  m_SizeDelta: {x: 227.0139, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5978280216395481808
 CanvasRenderer:
@@ -1528,8 +1528,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -141, y: 53}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: -102.49, y: 46.4271}
+  m_SizeDelta: {x: 227.02, y: 63.1458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8641207702999083640
 CanvasRenderer:
@@ -1824,7 +1824,7 @@ RectTransform:
   - {fileID: 5598034816977540131}
   - {fileID: 6833647775947741472}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2871,7 +2871,7 @@ GameObject:
   - component: {fileID: 5617371501277225046}
   - component: {fileID: 8026290069423857822}
   m_Layer: 5
-  m_Name: i_GameOver
+  m_Name: Q
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
