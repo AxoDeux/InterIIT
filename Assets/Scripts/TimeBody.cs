@@ -67,7 +67,7 @@ public class TimeBody : MonoBehaviour
     public void StartRewind()
     {
         isRewinding = true;
-        EnemyShooting.canShoot = false;
+        EnemyShooting.pauseShoot = true;
 
         //rb.isKinematic = true;
         PostProcessingManager.Instance.TimeRewinding();
@@ -78,7 +78,7 @@ public class TimeBody : MonoBehaviour
     {
         isRewinding = false;
         GameManager.canRewind = false;
-        EnemyShooting.canShoot = true;
+        EnemyShooting.pauseShoot = false;
         ScoreManager.Instance.OnBatteryDischarged();
         //rb.isKinematic = false;
         PostProcessingManager.Instance.ResetVignette();

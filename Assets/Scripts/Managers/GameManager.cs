@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"can rewind {canRewind}");
+
     }
 
 

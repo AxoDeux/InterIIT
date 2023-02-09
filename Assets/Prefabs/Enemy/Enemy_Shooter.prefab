@@ -368,7 +368,7 @@ MonoBehaviour:
   rndColor: {r: 0, g: 0, b: 0, a: 0}
   firePoint: {fileID: 3067326029118935079}
   enemyBulletPrefab: {fileID: 3126202580475667995, guid: 2e6f52d785d2ab14dab0b243529e47a5, type: 3}
-  bulletForce: 2
+  bulletForce: 12
   target: {fileID: 0}
   gunRb: {fileID: 2541869319366961617}
   bulletParent: {fileID: 0}

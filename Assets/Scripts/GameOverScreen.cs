@@ -45,6 +45,7 @@ public class GameOverScreen : MonoBehaviour
     {
         Time.timeScale = 1;
         SoundManager.PlaySound(SoundManager.Sound.UIButtonScifi);
+        ScoreManager.isGameOver = false;
         Invoke(nameof(ReloadScene), 1f);
     }
 

@@ -128,22 +128,20 @@ public class HighScoreTable : MonoBehaviour
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
-        //bool entryPresent = false;
-        ////add new entry
-        //foreach (var item in highscores.highscoreEntryList)
-        //{
-        //    //if name is present update it
-        //    if (item.name == name)
-        //    {
-        //        if (score > item.score)
-        //            item.score = score;
-        //        entryPresent = true;
-        //        break;
-        //    }
-        //}
+        bool entryPresent = false;
+        //add new entry
+        foreach(var item in highscores.highscoreEntryList) {
+            //if name is present update it
+            if(item.name == name) {
+                if(score > item.score)
+                    item.score = score;
+                entryPresent = true;
+                break;
+            }
+        }
 
-        //if (!entryPresent) highscores.highscoreEntryList.Add(highscoreEntry);
-        highscores.highscoreEntryList.Add(highscoreEntry);
+        if (!entryPresent) highscores.highscoreEntryList.Add(highscoreEntry);
+        //highscores.highscoreEntryList.Add(highscoreEntry);
 
         //save updated
         string json = JsonUtility.ToJson(highscores);

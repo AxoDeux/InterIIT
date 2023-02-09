@@ -32,8 +32,7 @@ public class EnemyBullet : MonoBehaviour
         StartCoroutine(WaitForBullet());
         if (collision.gameObject.CompareTag("Player"))
         {
-            //ScoreManager.Instance.DealDamage(damage);
-            Debug.Log("We hit player");
+            ScoreManager.Instance.DealDamage(damage);
         }
     }
 
