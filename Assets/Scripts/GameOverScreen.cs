@@ -14,6 +14,8 @@ public class GameOverScreen : MonoBehaviour
     private void OnEnable()
     {
 
+        t_highScore.text = PlayerPrefs.GetInt(GameManager.name).ToString();
+
     }
 
     public void SetScores(int score, int highScore, string time)
