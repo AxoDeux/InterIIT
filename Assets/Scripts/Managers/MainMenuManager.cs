@@ -45,7 +45,8 @@ public class MainMenuManager : MonoBehaviour
             case MenuButtonType.leaderboard:
                 {
                     Leaderboard.SetActive(true);
-                    Debug.Log("We hit leaderboard");
+
+                    //Debug.Log("We hit leaderboard");
                     //SoundManager.PlaySound()
                 }
                 //load leaderboard screen
@@ -56,13 +57,17 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    public void OnClickEditName() {
+    public void OnClickEditName()
+    {
         inputField.SetActive(true);
     }
 
-    public void OnEndEditName(TMP_Text name) {
+    public void OnEndEditName(TMP_Text name)
+    {
         //save name for leaderboard
         playerName.text = name.text;
+        PlayerPrefs.SetString("PLAYER_NAME", name.text);
+        PlayerPrefs.Save();
         inputField.SetActive(false);
     }
 }

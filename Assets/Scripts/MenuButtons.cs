@@ -11,22 +11,32 @@ public class MenuButtons : MonoBehaviour
 
     [SerializeField] private MainMenuManager.MenuButtonType buttonType;
 
-    private void Start() {
+    private void Start()
+    {
         hitCount = 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.CompareTag("Bullet")) {
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
             hitCount++;
             ChangeSprite();
-            if(hitCount == REQ_HITS) {
+            Destroy(collision.gameObject, 0.2f);
+            if (hitCount == REQ_HITS)
+            {
                 menuManager.OnDestroyButton(buttonType);
             }
         }
     }
 
-    private void ChangeSprite() {
-        if(hitCount > REQ_HITS) return;
+    private void ChangeSprite()
+    {
+        if (hitCount > REQ_HITS)
+        {
+            hitCount = 0;
+            return;
+        }
         gameObject.GetComponent<SpriteRenderer>().sprite = buttonSprites[hitCount];
     }
 }

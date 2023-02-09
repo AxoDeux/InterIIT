@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         Color rndColor = GameManager.ChooseRandomColor();
+        //Debug.Log("Enemy chosen color");
         foreach (SpriteRenderer sprite in enemyColoredParts)
         {
             GameManager.SetColor(sprite, rndColor, null);

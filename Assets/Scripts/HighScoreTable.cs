@@ -10,6 +10,7 @@ public class HighScoreTable : MonoBehaviour
     private List<HighScoreEntry> highScoreEntryList;
     private List<Transform> highScoreEntryTransformList;
 
+
     private void Awake()
     {
         entryContainer = transform.Find("HighScoreEntryContainer");
@@ -19,10 +20,11 @@ public class HighScoreTable : MonoBehaviour
 
         highScoreEntryList = new List<HighScoreEntry>()
         {
-            new HighScoreEntry("sarvo", 1934),
-            new HighScoreEntry("ishan", 3246),
-            new HighScoreEntry("rahul", 2245),
-            new HighScoreEntry("YOU", PlayerPrefs.GetInt("HIGHSCORE"))
+            //new HighScoreEntry("sahil", 1934),
+            //new HighScoreEntry("ishan", 3246),
+            //new HighScoreEntry("rahul", 2245),
+            
+            new HighScoreEntry(PlayerPrefs.GetString("PLAYER_NAME") + "*", PlayerPrefs.GetInt("HIGHSCORE"))
         };
         highScoreEntryTransformList = new List<Transform>();
 
