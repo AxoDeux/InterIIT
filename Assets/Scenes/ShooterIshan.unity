@@ -9183,10 +9183,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -128608357, guid: 9474bb3f3f40cda4b9dc525e41698faf, type: 3}
-    - target: {fileID: 7574594047887834148, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
-      propertyPath: gunSprite2
-      value: 
-      objectReference: {fileID: 1787974955}
     - target: {fileID: 8752705742978141819, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
       propertyPath: m_Icon
       value: 
