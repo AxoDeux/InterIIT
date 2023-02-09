@@ -14,6 +14,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject Quit;
     [SerializeField] private GameObject inputField;
     [SerializeField] private TMP_Text playerName;
+    [SerializeField] private GameObject mainMenuCanvas;
+    [SerializeField] private GameObject storyBoard;
 
 
     public enum MenuButtonType
@@ -37,7 +39,8 @@ public class MainMenuManager : MonoBehaviour
                 //enable how to play canvas
                 break;
             case MenuButtonType.story:
-                //start story level
+                storyBoard.SetActive(true);
+                mainMenuCanvas.SetActive(false);
                 break;
             case MenuButtonType.options:
                 //load options screen
