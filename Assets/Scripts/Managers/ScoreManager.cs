@@ -165,16 +165,6 @@ public class ScoreManager : MonoBehaviour
                 break;
         }
     }
-    void SetHighScore(int currScore)
-    {
-        if (currScore > PlayerPrefs.GetInt("HIGHSCORE"))
-        {
-            PlayerPrefs.SetInt(GameManager.name, currScore);
-            highScore = PlayerPrefs.GetInt("HIGHSCORE");
-            Debug.Log($"Highscore is {highScore}");
-            PlayerPrefs.Save();
-        }
-    }
 
     private void TimeScoreIncrease(int scoreIncrease)
     {
@@ -186,6 +176,16 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString();
         SetHighScore(score);
 
+    }
+    void SetHighScore(int currScore)
+    {
+        if (currScore > PlayerPrefs.GetInt(GameManager.name))
+        {
+            PlayerPrefs.SetInt(GameManager.name, currScore);
+            highScore = PlayerPrefs.GetInt(GameManager.name);
+            Debug.Log($"Highscore is {highScore}");
+            PlayerPrefs.Save();
+        }
     }
 
     private void OnGameOver()
