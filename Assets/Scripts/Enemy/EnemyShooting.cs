@@ -20,7 +20,7 @@ public class EnemyShooting : Enemy
     private float angle;    //to point at player
     public GameObject gunRb;
 
-    private bool canShoot = true;
+    public static bool canShoot = true;
 
     public Transform bulletParent;
     private void Awake()

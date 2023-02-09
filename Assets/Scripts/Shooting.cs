@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using static UnityEngine.GraphicsBuffer;
+using EZCameraShake;
 
 public class Shooting : MonoBehaviour
 {
@@ -58,12 +59,13 @@ public class Shooting : MonoBehaviour
         //gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         shootingMode = ShootingMode.Single;
     }
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         RotateGun(shootingMode);
     }
     private void Update()
     {
-        
+
         if (Input.GetButton("Fire1"))
         {
             if (EventSystem.current.IsPointerOverGameObject()) return;
@@ -100,7 +102,7 @@ public class Shooting : MonoBehaviour
         GameManager.SetColor(bullet.GetComponentInChildren<SpriteRenderer>(), gunSprite.GetComponent<SpriteRenderer>().color, null);
         Rigidbody2D rb = bullet.GetComponentInChildren<Rigidbody2D>();
         rb.AddForce(aimDir.normalized * bulletForce, ForceMode2D.Impulse);
-
+        CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 0.5f);
         SoundManager.PlaySound(SoundManager.Sound.shoot);
     }
 

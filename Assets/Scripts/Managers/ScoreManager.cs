@@ -70,6 +70,14 @@ public class ScoreManager : MonoBehaviour
     {
         SetClockTime();
         SetScore();
+        if (i_timeBattery.fillAmount >= 1f)
+        {
+            GameManager.canRewind = true;
+        }
+        else if (i_timeBattery.fillAmount == 0f)
+        {
+            GameManager.canRewind = false;
+        }
     }
 
     private void SetClockTime()
@@ -127,11 +135,6 @@ public class ScoreManager : MonoBehaviour
     {
         if (i_timeBattery.fillAmount >= 1f) { return; }
         i_timeBattery.fillAmount += 0.25f;
-
-        if (i_timeBattery.fillAmount >= 1f)
-        {
-            GameManager.canRewind = true;
-        }
     }
 
     public void OnBatteryDischarged()

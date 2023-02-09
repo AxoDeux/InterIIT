@@ -25,6 +25,7 @@ public class MenuButtons : MonoBehaviour
             Destroy(collision.gameObject, 0.2f);
             if (hitCount == REQ_HITS)
             {
+                Cursor.visible = true;
                 menuManager.OnDestroyButton(buttonType);
             }
         }

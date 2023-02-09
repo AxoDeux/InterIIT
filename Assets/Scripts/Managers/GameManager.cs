@@ -8,17 +8,14 @@ public class GameManager : MonoBehaviour
 {
 
     public static UnityEngine.Color[] colorCode = {
-        new UnityEngine.Color(63/255f, 235/255f, 200/255f),
-        new UnityEngine.Color(229/255f, 204/255f, 102/255f),
-        new UnityEngine.Color(243/255f, 227/255f, 178/255f),
-        new UnityEngine.Color(195/255f, 152/255f, 105/255f),
-        new UnityEngine.Color(182/255f, 179/255f, 213/255f),
-        new UnityEngine.Color(195/255f, 152/255f, 105/255f),
-        new UnityEngine.Color(237/255f, 235/255f, 125/255f)
-        //Color.red,
-        //Color.black,
-        //Color.blue,
-        //Color.grey
+
+        new UnityEngine.Color(5/255f, 93/255f, 1/255f),
+
+        new UnityEngine.Color(60/255f, 57/255f, 96/255f),
+
+        new UnityEngine.Color(94/255f, 50/255f, 86/255f),
+
+        new UnityEngine.Color(88/255f, 144/255f, 162/255f),
 };
     [SerializeField]
     SpriteRenderer gunSprite;
@@ -32,36 +29,23 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     [Tooltip("Color change time of the gun")]
     public static float colorChangeTime = 3f;
-    public static float rewindTime = 5f;
-    public static bool isRewinding;
+    //public static float rewindTime = 10f;
+    public static bool isRewinding = false;
     public static bool canRewind;
 
 
     void Start()
     {
-        isRewinding = false;
-    }
-
-    private void Update() {
-        if(Input.GetKeyDown(KeyCode.E) && canRewind) {
-            StartRewind();
-        }
-        if(Input.GetKeyUp(KeyCode.E) && isRewinding) {
-            StopRewind();
-        }
-    }
-
-    private void StartRewind() {
-        isRewinding = true;
-        PostProcessingManager.Instance.TimeRewinding();
-    }
-
-    public static void StopRewind() {
-        isRewinding = false;
         canRewind = false;
-        ScoreManager.Instance.OnBatteryDischarged();
-        PostProcessingManager.Instance.ResetVignette();
+        //isRewinding = false;
     }
+
+    private void Update()
+    {
+        Debug.Log($"can rewind {canRewind}");
+    }
+
+
 
     public void StartColorChoosingSequence(SpriteRenderer sprite)
     {
