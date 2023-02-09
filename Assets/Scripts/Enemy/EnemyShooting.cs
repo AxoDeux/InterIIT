@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using System.Numerics;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 //using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -39,20 +40,25 @@ public class EnemyShooting : Enemy
         bullet = Instantiate(enemyBulletPrefab, firePoint);
         bullet.transform.parent = bulletParent;
         bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        Vector3 dir = target.position - firePoint.position;
+        bulletRb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(2f);
         canShoot = true;
     }
     private void RotateGun()
     {
-        Vector3 direction = (target.position - transform.position).normalized;
+        Vector3 direction = (target.position - transform.position);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        gunRb.transform.rotation = Quaternion.Euler(0, 0, angle);
-        if(angle < -90 || angle > 90) {
-            if(direction.x < 0) {
+        gunRb.transform.rotation = Quaternion.Euler(0, 0, angle - 15f);
+        if (angle < -90 || angle > 90)
+        {
+            if (direction.x < 0)
+            {
                 gunRb.transform.localRotation = Quaternion.Euler(180, 0, -angle);
-            } else if(direction.x > 0) {
+            }
+            else if (direction.x > 0)
+            {
                 gunRb.transform.localRotation = Quaternion.Euler(180, 180, -angle);
             }
         }

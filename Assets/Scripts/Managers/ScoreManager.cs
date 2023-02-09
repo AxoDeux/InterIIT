@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance { get; private set; }
 
     [SerializeField]
-    private const float MAX_INFECTION = 100f;
+    private float MAX_INFECTION = 100f;
 
     [SerializeField] private TMP_Text timeText;
     [SerializeField] private TMP_Text scoreText;

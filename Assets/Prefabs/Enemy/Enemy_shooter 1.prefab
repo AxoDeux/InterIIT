@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7665643323851533747}
   - component: {fileID: 7028887435684739382}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 1257820644, guid: 2299273bc0c7042e994f40eeccd68fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5725527440646569304}
   - component: {fileID: 5639333248671568717}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Enemy_shooter 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ Transform:
   - {fileID: 702254012885059589}
   - {fileID: 2504237360397922435}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5639333248671568717
 Animator:
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5161845662606801121}
   - component: {fileID: 8039939672292732962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1060170763, guid: 2299273bc0c7042e994f40eeccd68fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -236,7 +236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047872148426068679}
   - component: {fileID: 5424204542117012103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -119433319, guid: 2299273bc0c7042e994f40eeccd68fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -320,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702254012885059589}
   - component: {fileID: 4209700885292246139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 2061453831, guid: 2299273bc0c7042e994f40eeccd68fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2504237360397922435}
   - component: {fileID: 5728426739406078620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1689846965, guid: 2299273bc0c7042e994f40eeccd68fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 437673155032859358}
   - component: {fileID: 5730598164679564488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -268424703, guid: 2299273bc0c7042e994f40eeccd68fff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

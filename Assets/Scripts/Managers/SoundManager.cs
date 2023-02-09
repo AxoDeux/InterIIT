@@ -51,7 +51,7 @@ public static class SoundManager
         {
             if (soundAudioClip.sound == sound)
             {
-                Debug.Log("Found sound");
+                //Debug.Log("Found sound");
                 return soundAudioClip.audioClip;
             }
         }

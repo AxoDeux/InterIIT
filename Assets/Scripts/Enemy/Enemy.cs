@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         SpriteRenderer bullet = collision.gameObject.GetComponentInChildren<SpriteRenderer>();
         if (enemyColoredParts.Length > 0 && collision.gameObject.CompareTag("Bullet") && (enemyColoredParts[0].color == bullet.color))
         {
+            Debug.Log(collision.gameObject.name + "Hit us");
             //Debug.Log("We hit");
             hitCount++;
             if (hitCount >= hitsRequired)
