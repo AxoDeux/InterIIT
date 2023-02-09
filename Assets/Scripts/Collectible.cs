@@ -6,6 +6,15 @@ public class Collectible : MonoBehaviour
 {
     [SerializeField] private InventoryManager.Items itemType;
 
+    private void Start() {
+        StartCoroutine(Delay());
+    }
+
+    private IEnumerator Delay() {
+        float rnd = Random.Range(0f, 1f);
+        yield return new WaitForSeconds(rnd);
+        LeanTween.moveLocalY(gameObject, 0.5f, 1f).setEaseInOutCubic().setLoopPingPong();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
