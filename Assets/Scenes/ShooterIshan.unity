@@ -4935,53 +4935,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3820636004858938322, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: MAX_INFECTION
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5378904319386870693, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 227.0139
-      objectReference: {fileID: 0}
-    - target: {fileID: 5378904319386870693, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5378904319386870693, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -102.48802
-      objectReference: {fileID: 0}
-    - target: {fileID: 5378904319386870693, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22
-      objectReference: {fileID: 0}
     - target: {fileID: 6510736950287543828, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
       propertyPath: m_Name
       value: ScoreCanvas (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375625099720485884, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 227.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375625099720485884, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 63.1458
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375625099720485884, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -102.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 7375625099720485884, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 46.4271
-      objectReference: {fileID: 0}
-    - target: {fileID: 9069816146051639911, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_Name
-      value: Q
-      objectReference: {fileID: 0}
-    - target: {fileID: 9069816146051639911, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
