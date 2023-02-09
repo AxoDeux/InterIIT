@@ -16,6 +16,7 @@ public class Collectible : MonoBehaviour
                     {
                         InventoryManager.Instance.OnCollectCoin();
                         SoundManager.PlaySound(SoundManager.Sound.coin);
+                        ScoreManager.Instance.HealInfection(10);
                     }
                     break;
                 case InventoryManager.Items.timeCell:

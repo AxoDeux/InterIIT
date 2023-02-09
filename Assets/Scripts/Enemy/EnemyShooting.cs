@@ -1,11 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-//using System.Numerics;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-//using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
 
 public class EnemyShooting : Enemy
 {
