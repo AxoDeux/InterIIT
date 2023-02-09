@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e5e479f04c4113b0c1e537d9642e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewindTime: 5
+  recordTime: 10
 --- !u!114 &476425932006711874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +255,7 @@ MonoBehaviour:
   - {fileID: 2638340890092055887}
   damage: 10
   hitsRequired: 1
+  splashEffect: {fileID: 4890198324659082732, guid: 02e9e493817b2477ea2e822be48026dc, type: 3}
   type: 0
   rndColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!50 &1492940372525846981
