@@ -16,6 +16,8 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] List<GameObject> enemies;
     [SerializeField] Transform enemyParent;
+    [SerializeField] Transform bulletParent;
+
     [SerializeField] float spawnTime = 3f;
     float currTime = 0;
     private Dictionary<Enemy.EnemyType, GameObject> typeToEnemyObjectMap;
@@ -90,6 +92,9 @@ public class Spawner : MonoBehaviour
             if(rnd < 4) continue;                       // 1/4 probability of spawning
             GameObject newGameObject = Instantiate(enemy, item.transform.position, transform.rotation);
             newGameObject.transform.parent = enemyParent;
+            if(newGameObject.TryGetComponent<EnemyShooting>(out EnemyShooting enemyShooting)) {
+                enemyShooting.bulletParent = bulletParent;
+            }
         }
     }
 
