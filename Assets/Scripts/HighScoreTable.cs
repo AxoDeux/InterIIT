@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class HighScoreTable : MonoBehaviour
@@ -20,6 +21,7 @@ public class HighScoreTable : MonoBehaviour
 
     private void Awake()
     {
+        //PlayerPrefs.DeleteKey("highscoreTable");
         entryContainer = transform.Find("HighScoreEntryContainer");
         entryTemplate = entryContainer.Find("HighScoreEntryTemplate");
 
@@ -28,46 +30,64 @@ public class HighScoreTable : MonoBehaviour
         //AddHighScoreEntry(10000, "sarvo");
         //AddHighScoreEntry(100, "sarvo");
 
-        //highScoreEntryList = new List<HighScoreEntry>()
-        //{
+        Debug.Log(PlayerPrefs.GetString("highscoreTable"));
+        highScoreEntryList = new List<HighScoreEntry>()
+        {
         //new HighScoreEntry{ name = "sarvo", score = 1000},
-        //new HighScoreEntry{ name = "ishan", score = 3000},
-        //new HighScoreEntry{ name = "rahul", score = 2000},
+        new HighScoreEntry{ name = "ishan", score = 3000},
+        new HighScoreEntry{ name = "rahul", score = 2000},
 
 
-        //};
+        };
 
+
+        //MY CODE
+        //string jsonString = 
+
+        //
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
+        if (jsonString == "")
+        {
+            Highscores highscore = new Highscores { highscoreEntryList = highScoreEntryList };
+            string json = JsonUtility.ToJson(highscore);
+            Debug.Log($"json is {json}");
+            PlayerPrefs.SetString("highscoreTable", json);
+            PlayerPrefs.Save();
+        }
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
-        highScoreEntryTransformList = new List<Transform>();
+
+
+        //PlayerPrefs.GetString("highscoreTable");
 
         //Sort entry list
-        for (int i = 0; i < highscores.highscoreEntryList.Count; i++)
+        if (jsonString != "" || highscores != null)
         {
-            for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
+            for (int i = 0; i < highscores.highscoreEntryList.Count; i++)
             {
-                if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score)
+                for (int j = i + 1; j < highscores.highscoreEntryList.Count; j++)
                 {
-                    //swap
-                    HighScoreEntry tmp = highscores.highscoreEntryList[i];
-                    highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
-                    highscores.highscoreEntryList[j] = tmp;
+                    if (highscores.highscoreEntryList[j].score > highscores.highscoreEntryList[i].score)
+                    {
+                        //swap
+                        HighScoreEntry tmp = highscores.highscoreEntryList[i];
+                        highscores.highscoreEntryList[i] = highscores.highscoreEntryList[j];
+                        highscores.highscoreEntryList[j] = tmp;
+                    }
                 }
             }
+
         }
 
 
+        highScoreEntryTransformList = new List<Transform>();
         foreach (HighScoreEntry highScoreEntry in highscores.highscoreEntryList)
         {
             CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
         }
 
-        //Highscores highscore = new Highscores { highscoreEntryList = highScoreEntryList };
-        //string json = JsonUtility.ToJson(highscore);
-        //PlayerPrefs.SetString("highscoreTable", json);
-        //PlayerPrefs.Save();
-        //PlayerPrefs.GetString("highscoreTable");
+
+
     }
     private void CreateHighScoreEntryTransform(HighScoreEntry highScoreEntry,
         Transform container, List<Transform> transformList)
@@ -108,21 +128,22 @@ public class HighScoreTable : MonoBehaviour
         string jsonString = PlayerPrefs.GetString("highscoreTable");
         Highscores highscores = JsonUtility.FromJson<Highscores>(jsonString);
 
-        bool entryPresent = false;
-        //add new entry
-        foreach (var item in highscores.highscoreEntryList)
-        {
-            //if name is present update it
-            if (item.name == name)
-            {
-                if (score > item.score)
-                    item.score = score;
-                entryPresent = true;
-                break;
-            }
-        }
+        //bool entryPresent = false;
+        ////add new entry
+        //foreach (var item in highscores.highscoreEntryList)
+        //{
+        //    //if name is present update it
+        //    if (item.name == name)
+        //    {
+        //        if (score > item.score)
+        //            item.score = score;
+        //        entryPresent = true;
+        //        break;
+        //    }
+        //}
 
-        if (!entryPresent) highscores.highscoreEntryList.Add(highscoreEntry);
+        //if (!entryPresent) highscores.highscoreEntryList.Add(highscoreEntry);
+        highscores.highscoreEntryList.Add(highscoreEntry);
 
         //save updated
         string json = JsonUtility.ToJson(highscores);

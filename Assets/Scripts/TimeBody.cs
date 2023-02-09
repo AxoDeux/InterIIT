@@ -7,7 +7,7 @@ public class TimeBody : MonoBehaviour
 
     bool isRewinding = false;
 
-    public float recordTime = 5f;
+    public float recordTime = 3f;
 
     List<PointInTime> pointsInTime;
 

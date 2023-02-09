@@ -163,7 +163,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void HealInfection(float amount) {
+    public void HealInfection(float amount)
+    {
         i_infectionBar.fillAmount -= amount / MAX_INFECTION;
         InstantiateEffeect(scorePopUp, (int)amount, "+");
     }
@@ -263,11 +264,13 @@ public class ScoreManager : MonoBehaviour
     public void OnClickMenu()
     {
         Time.timeScale = 1f;
-        SoundManager.PlaySound(SoundManager.Sound.UICloseButton) ;
+        SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
+        isGameOver = false;
         Invoke(nameof(LoadLevel), 1f);
     }
 
-    private void LoadLevel() {
+    private void LoadLevel()
+    {
         SceneManager.LoadScene(0);
     }
 }

@@ -12,31 +12,39 @@ public class EnemyBullet : MonoBehaviour
     [Range(0, 10)]
     //after this range bullet will destroy it self
     float bulletrange = 5.0f;
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         CheckDistanceOfBullet();
     }
 
-    private void CheckDistanceOfBullet() {
+    private void CheckDistanceOfBullet()
+    {
         Transform playerCurrPosition =
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        if(Vector2.Distance(transform.position, playerCurrPosition.position) > bulletrange) {
+        if (Vector2.Distance(transform.position, playerCurrPosition.position) > bulletrange)
+        {
             DestroyBullet();
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         StartCoroutine(WaitForBullet());
-        if(collision.gameObject.CompareTag("Player")) {
-            ScoreManager.Instance.DealDamage(damage);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //ScoreManager.Instance.DealDamage(damage);
+            Debug.Log("We hit player");
         }
     }
 
-    IEnumerator WaitForBullet() {
+    IEnumerator WaitForBullet()
+    {
         yield return new WaitForSeconds(2f);
         DestroyBullet();
     }
 
-    private void DestroyBullet() {
+    private void DestroyBullet()
+    {
         Destroy(gameObject);
     }
 }
