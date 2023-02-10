@@ -236,6 +236,7 @@ public class ScoreManager : MonoBehaviour
         Time.timeScale = 0f;
         //stop all active coroutines and set isDead booleans to true;
         Cursor.visible = true;
+        ScoreManager.Instance.ResetGameStats();
         gameOverScreen.SetActive(true);
         SoundManager.PlaySound(SoundManager.Sound.gameOver);
         //high
@@ -264,13 +265,22 @@ public class ScoreManager : MonoBehaviour
     public void OnClickMenu()
     {
         Time.timeScale = 1f;
+        ScoreManager.Instance.ResetGameStats();
         SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
-        isGameOver = false;
+        //isGameOver = false;
         Invoke(nameof(LoadLevel), 1f);
     }
 
     private void LoadLevel()
     {
         SceneManager.LoadScene(0);
+    }
+    public void ResetGameStats()
+    {
+        //time = 0f;
+        //score = 0;
+        i_timeBattery.fillAmount = 0f;
+        i_infectionBar.fillAmount = 0f;
+        isGameOver = false;
     }
 }

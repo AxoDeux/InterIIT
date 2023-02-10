@@ -31,7 +31,8 @@ public class GameOverScreen : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
         Invoke(nameof(LoadLevel), 1f);
     }
-    private void LoadLevel() {
+    private void LoadLevel()
+    {
         SceneManager.LoadScene(0);
     }
 
@@ -44,12 +45,13 @@ public class GameOverScreen : MonoBehaviour
     public void OnClickRestart()
     {
         Time.timeScale = 1;
+        ScoreManager.Instance.ResetGameStats();
         SoundManager.PlaySound(SoundManager.Sound.UIButtonScifi);
-        ScoreManager.isGameOver = false;
-        Invoke(nameof(ReloadScene), 1f);
+        Invoke(nameof(ReloadScene), Time.fixedDeltaTime);
     }
 
-    private void ReloadScene() {
+    private void ReloadScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

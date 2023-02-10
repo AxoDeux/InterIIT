@@ -5344,6 +5344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreCanvas (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9069816146051639911, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f685737d34d26964d9ec5a6bf2d2ec12, type: 3}
