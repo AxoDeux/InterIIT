@@ -102,7 +102,7 @@ public class Shooting : MonoBehaviour
         GameManager.SetColor(bullet.GetComponentInChildren<SpriteRenderer>(), gunSprite.GetComponent<SpriteRenderer>().color, null);
         Rigidbody2D rb = bullet.GetComponentInChildren<Rigidbody2D>();
         rb.AddForce(aimDir.normalized * bulletForce, ForceMode2D.Impulse);
-        CameraShaker.Instance.ShakeOnce(4f, 4f, 0.1f, 0.5f);
+        CameraShaker.Instance.ShakeOnce(1f, 1f, 0.1f, 0.5f);
         SoundManager.PlaySound(SoundManager.Sound.shoot);
     }
 
@@ -154,6 +154,7 @@ public class Shooting : MonoBehaviour
         rb2.AddForce(aimDir * bulletForce, ForceMode2D.Impulse);
         SoundManager.PlaySound(SoundManager.Sound.shoot);
         SoundManager.PlaySound(SoundManager.Sound.shoot);
+        CameraShaker.Instance.ShakeOnce(1f, 1f, 0.1f, 0.5f);
 
     }
 

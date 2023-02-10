@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9ee021847cf064ab248172e2461c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitEffect: {fileID: 0}
+  splashEffect: {fileID: 4890198324659082732, guid: 02e9e493817b2477ea2e822be48026dc, type: 3}
   bulletRange: 10
 --- !u!96 &287766983399325581
 TrailRenderer:

@@ -58,13 +58,8 @@ public class Enemy : MonoBehaviour
             Vector2 collisionPoint = collision.GetContact(0).point;
             Vector2 collisionNormal = collision.GetContact(0).normal;
 
-            // Instantiate the splash prefab at the collision point
-            GameObject splash = Instantiate(splashEffect, collisionPoint, Quaternion.identity);
-
-            splash.GetComponentInChildren<SpriteRenderer>().color = bullet.color;
             // Rotate the splash to face the direction of the collision
             float angle = Mathf.Atan2(collisionNormal.y, collisionNormal.x) * Mathf.Rad2Deg;
-            splash.transform.rotation = Quaternion.AngleAxis(angle + 54.05f, Vector3.forward);
 
             if (hitCount >= hitsRequired)
             {

@@ -28,9 +28,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(WaitForBullet());
+        //StartCoroutine(WaitForBullet());
         //position of player when he shoots the bullet
-        
+        Color color = GetComponentInChildren<SpriteRenderer>().color;
+        GameObject go = Instantiate(splashEffect, collision.transform.position, Quaternion.identity);
+        go.GetComponentInChildren<SpriteRenderer>().color = color;
+        DestroyBullet();
     }
 
     IEnumerator WaitForBullet()
