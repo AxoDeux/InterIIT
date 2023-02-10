@@ -6,6 +6,9 @@ public class TimeBody : MonoBehaviour
 {
 
     bool isRewinding = false;
+    public static bool isRewindCalled = false;
+    public static bool isStartRewindCalled = false;
+    public static bool isStopRewindCalled = false;
 
     public float recordTime = 3f;
 
@@ -25,8 +28,13 @@ public class TimeBody : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && GameManager.canRewind)
             StartRewind();
-        if (Input.GetKeyUp(KeyCode.E))
+        if(Input.GetKeyUp(KeyCode.E)) {
             StopRewind();
+            isRewindCalled = false;
+            isStopRewindCalled = false;
+            isStartRewindCalled = false;
+        }
+
     }
 
     void FixedUpdate()
@@ -45,7 +53,11 @@ public class TimeBody : MonoBehaviour
             transform.position = pointInTime.position;
             transform.rotation = pointInTime.rotation;
             pointsInTime.RemoveAt(0);
-            SoundManager.PlaySound(SoundManager.Sound.timeRewind);
+            if(!isRewindCalled) {
+                SoundManager.PlaySound(SoundManager.Sound.timeRewind);
+                isRewindCalled = true;
+                Debug.Log("Rewind called");
+            }
         }
         else
         {
@@ -70,7 +82,10 @@ public class TimeBody : MonoBehaviour
         EnemyShooting.pauseShoot = true;
 
         //rb.isKinematic = true;
-        PostProcessingManager.Instance.TimeRewinding();
+        if(!isStartRewindCalled) {
+            PostProcessingManager.Instance.TimeRewinding();
+            isStartRewindCalled = true;
+        }
 
     }
 
@@ -78,10 +93,16 @@ public class TimeBody : MonoBehaviour
     {
         isRewinding = false;
         GameManager.canRewind = false;
-        EnemyShooting.pauseShoot = false;
-        ScoreManager.Instance.OnBatteryDischarged();
-        //rb.isKinematic = false;
-        PostProcessingManager.Instance.ResetVignette();
+        GameManager.isRewinding = false;
+
+        if(!isStopRewindCalled) {
+            EnemyShooting.pauseShoot = false;
+            ScoreManager.Instance.OnBatteryDischarged();
+            //rb.isKinematic = false;
+            PostProcessingManager.Instance.ResetVignette();
+            isStopRewindCalled = true;
+        }
+        
 
     }
 }
