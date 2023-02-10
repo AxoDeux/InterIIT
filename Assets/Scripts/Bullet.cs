@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField]
-    private GameObject hitEffect = null; //add hit animation
+    private GameObject splashEffect = null; //add hit animation
 
     [SerializeField]
     [Range(0, 10)]
@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
     {
         StartCoroutine(WaitForBullet());
         //position of player when he shoots the bullet
+        
     }
 
     IEnumerator WaitForBullet()
