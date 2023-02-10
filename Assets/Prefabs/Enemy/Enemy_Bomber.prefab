@@ -642,6 +642,7 @@ MonoBehaviour:
   rndColor: {r: 0, g: 0, b: 0, a: 0}
   explosionDist: 2
   toxicZone: {fileID: 1417756006925026697}
+  bomberModel: {fileID: 7165002225736347915}
 --- !u!70 &1265840712389452157
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -840,5 +841,10 @@ SpriteRenderer:
 --- !u!4 &5297697118575570324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6641139641477288045, guid: b5b17ebb7f4b14526928650b1cc6089d, type: 3}
+  m_PrefabInstance: {fileID: 1562505148000534009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7165002225736347915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8556858708170083570, guid: b5b17ebb7f4b14526928650b1cc6089d, type: 3}
   m_PrefabInstance: {fileID: 1562505148000534009}
   m_PrefabAsset: {fileID: 0}

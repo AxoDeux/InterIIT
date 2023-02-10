@@ -35,6 +35,11 @@ public class EnemyFollow : MonoBehaviour
         aiPath.maxSpeed = rndNum;
     }
 
+    public void StopFollowing() {
+        aiPath.canMove = false;
+        //destinationSetter.enabled = false;
+    }
+
     //void Update()
     //{
     //    if(!GameManager.isRewinding) { }
