@@ -6,6 +6,9 @@ public class EnemyBomber : Enemy
 {
     [SerializeField] private float explosionDist;
     [SerializeField] private GameObject toxicZone;
+    [SerializeField] private GameObject bomberModel;
+
+    private bool isCoroutineStarted = false;
 
     private EnemyFollow followScript;
     private TimeBody timeScript;
@@ -23,9 +26,9 @@ public class EnemyBomber : Enemy
     private void Update()
     {
         distance = player.transform.position - transform.position;
-        if (distance.magnitude < explosionDist)
+        if (distance.magnitude < explosionDist && !isCoroutineStarted)
         {
-            Debug.Log("We explode");
+            //Debug.Log("We explode");
             //***
             StartCoroutine(Explode());
         }
@@ -33,11 +36,14 @@ public class EnemyBomber : Enemy
 
     private IEnumerator Explode()
     {
+        isCoroutineStarted = true;
+
         toxicZone.SetActive(true);
+        bomberModel.SetActive(false);
         //toxicZone.GetComponent<SpriteRenderer>().color = rndColor;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         timeScript.enabled = false;
-        followScript.enabled = false;
+        followScript.StopFollowing();
         toxicZone.GetComponent<Animator>().SetBool("shouldBlast", true);
         //Debug.Log("We set the shouldblast true here");
         yield return new WaitForSeconds(5f);
