@@ -3623,37 +3623,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &698307242 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7397224385908866169, guid: a7624ce85e34e09469dbc01ee30342f2, type: 3}
-  m_PrefabInstance: {fileID: 7397224386554179283}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &698307246
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698307242}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.4961071, y: 0.16536891}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.34, y: 3.11}
-    newSize: {x: 4.34, y: 3.11}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.5462303, y: 2.7792618}
-  m_EdgeRadius: 0
 --- !u!4 &698307247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7397224385908866168, guid: a7624ce85e34e09469dbc01ee30342f2, type: 3}
@@ -5767,7 +5736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAMArIeyZKjHXXAIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzqVj3EBwb60hpIckTGgnF18Ua401yJJHj/Aa/ntXso0dOj2xfPvt7rcP+Uy4NDXkVumV5uxJMSDfR8Tb5Muodz7CgW6V3PATdJw3zmzpSTRwXqnlCvGJDzOqAqt5/kNuhSdHCDrJC6WrJdtCqow1CBdUGECXVtZHS4TOI3LAn3HiQ45oxffeOqGVRKMLmjlIC7qndsSO1rCczAWtamBeck+e37XsaRxoEptpGdHXuc+uhOCm1ULssQ69prQ2DjtBAuMUewsCfKsl8G1pvc5h8EtRGLCtKE2PC65xRE1W8lM1c6uo2TXKPqhwvk48nQVVTdKnf/zjSXAXWlWPXd1J5GvYkue7V3rMqbGDwQ7hxWfhTu6p2NF3AW8lyGe10spJhk6rnQ91BuJF//faWlpCvuvxRuoN6Or/r8f3cAndH1LBq/cw+bsG2AgV5h2WDxp38wsFh9MwbQpEvYo/Bn7T7fCGWscD18aiq+1SennvymlPJcswM9+Ns6nSEgLciq5BUmGPa0xjb1d44xuUvfE8UP9a2uKtr3sENyEB7vlRdONaq/11WaZU+ycw5YuzgkvoRXvHM84pVVI2FzacSRe2cbqg+SBs6zj7fFokiosoSeLZ7BvMosl0OoZiSqOkuE/mbDqnSUzC7XGJfVKxboS248GtyT65xDvrPiKjlaZ1uHam6X7FT5UaCuSyUJtcA8iXJsVVOWisgg+TLRnHCW3AWi7Dwsk5I0LlO2DZtWYWWl0erKZZnyUjNf9Q1iMZScNnIyMevh7zWsMHh70v3iW7kMtfUEsDBBQAAAgIAMArIewxKE83bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSgVGagaWlkZmZcaqZgaGpqW5qmmmigWWauaVFiqlFoqWRUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAMArIeyZKjHXXAIAABUFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAMArIewxKE83bQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
+    dataString: UEsDBBQAAAgIAMArIexsxVn1XQIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzqVj3EBwb60hpIckTGgnF18Ua401yJJHj/Aa/ntXso0dOj2xfPvt7rcP+Uy4NDXkVumV5uxJMSDfR8Tb5Muodz7CgW6V3PATdJw3zmzpSTRwXqnlCvGJDzOqAqt5/kNuhSdHCDrJC6WrJdtCqow1CBdUGECXVtZHS4TOI3LAn3HiQ45oxffeOqGVRKMLmjlIC7qndsSO1rCczAWtamBeck+e37XsaRxoEptpGdHXuc+uhOCm1ULssQ69prQ2DjtBAuMUewsCfKsl8G1pvc5h8EtRGLCtKE2PC65xRE1W8lM1c6uo2TXKPqhwvk48nQVVTdKnf/zjSXAXWlWPXd1J5GvYkue7V3rMqbGDwQ7hxWfhTu6p2NF3AW8lyGe10spJhk6rnQ91BuJF//faWlpCvuvxRuoN6Or/r8f3cAndH1LBq/cw+bsG2AgV5h2WDxp38wsFh9MwbQpEvYo/Bn7T7fCGWscD18aiq+1SennvymlPJcswM9+Ns6nSEgLciq5BUmGPa0xjb1d44xuUvfE8UP9a2uKtr3sENyEB7vlRdONaq/11WaZU+ycw5YuzgkvoRXvHM84pVVI2FzacSRe2cbqg+SBs6zj7fFokiosoSeLZ7BvMosl0OoZiSqOkuE/mbDqnSUzC7XGJfVKxboS248GtyT65xDvrPiKjlaZ1uHam6X7FT5UajJzLQm1yDSBfmgxX4aCxCL5LtmQcB7QBa7kM+ybnjAiV74Bl10RZ6HR5sJpmfZaM1PxDWY9kJA1fjYx4+HrLaw0fHPa+eJfsQi5/AVBLAwQUAAAICADAKyHsMShPN20AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0koFRmoGlpZGZmXGqmYGhqaluapppooFlmrmlRYqpRaKlkVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICADAKyHsbMVZ9V0CAAAUBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICADAKyHsMShPN20AAAB4AAAACQAkAAAAAAAAAAAAAACqAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAGIDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -5799,7 +5768,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -6057,32 +6026,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1262451354
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262451350}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.018273473, y: -0.054820776}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.8, y: 2.5}
-    newSize: {x: 3.8, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.4710758, y: 2.2441697}
-  m_EdgeRadius: 0
 --- !u!4 &1262451355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5660449590300668294, guid: 537eccae213cdb44587a9c0be7870180, type: 3}
@@ -9243,32 +9186,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1952082712
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1952082708}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.018273473, y: -0.054820776}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.8, y: 2.5}
-    newSize: {x: 3.8, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.4710758, y: 2.2441697}
-  m_EdgeRadius: 0
 --- !u!1 &1956337950
 GameObject:
   m_ObjectHideFlags: 0
@@ -9795,42 +9712,11 @@ MonoBehaviour:
   yPosBound: 20
   yNegBound: -11
   offset: {x: 0, y: 0, z: -20}
---- !u!1 &2065217555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7397224385908866169, guid: a7624ce85e34e09469dbc01ee30342f2, type: 3}
-  m_PrefabInstance: {fileID: 263445966}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2065217556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7397224385908866168, guid: a7624ce85e34e09469dbc01ee30342f2, type: 3}
   m_PrefabInstance: {fileID: 263445966}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &2065217557
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065217555}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.4961071, y: 0.16536891}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.34, y: 3.11}
-    newSize: {x: 4.34, y: 3.11}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.5462303, y: 2.7792618}
-  m_EdgeRadius: 0
 --- !u!1 &2069128057
 GameObject:
   m_ObjectHideFlags: 0
@@ -10324,6 +10210,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1209330749}
     m_Modifications:
+    - target: {fileID: 698307246, guid: a7624ce85e34e09469dbc01ee30342f2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7397224385908866168, guid: a7624ce85e34e09469dbc01ee30342f2, type: 3}
       propertyPath: m_RootOrder
       value: -1
