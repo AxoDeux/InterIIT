@@ -16,7 +16,9 @@ public class EnemyShooting : Enemy
     private float angle;    //to point at player
     public GameObject gunRb;
 
-    public static bool canShoot = true;
+    public static bool pauseShoot = false;
+    private bool canShoot = true;
+
 
     public Transform bulletParent;
     private void Awake()
@@ -26,7 +28,7 @@ public class EnemyShooting : Enemy
     private void Update()
     {
         RotateGun();
-        if (!canShoot) { return; }
+        if (!canShoot || pauseShoot) { return; }
         StartCoroutine(Shoot());
     }
 
@@ -37,6 +39,7 @@ public class EnemyShooting : Enemy
         bullet.transform.parent = bulletParent;
         bulletRb = bullet.GetComponent<Rigidbody2D>();
         Vector3 dir = target.position - firePoint.position;
+        dir.Normalize();
         bulletRb.AddForce(dir * bulletForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(2f);

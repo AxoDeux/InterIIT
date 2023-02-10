@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Spawner : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float wave2Time;
     [SerializeField] private float wave3Time;
 
+    [SerializeField] private TMP_Text messageText;
     ///
 
     [SerializeField] List<GameObject> spawnPoints;
@@ -100,27 +102,36 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator WaveEvents() {
         currWave = Wave.none;
+        messageText.gameObject.SetActive(true);
+        messageText.text = "Wave 1 starting...";
         yield return new WaitForSeconds(waitStartTime);
 
         currWave = Wave.wave1;
         SoundManager.PlaySound(SoundManager.Sound.WaveStart);
         Spawn();
+        messageText.gameObject.SetActive(false);
         yield return new WaitForSeconds(wave1Time);
 
         currWave = Wave.none;
+        messageText.gameObject.SetActive(true);
+        messageText.text = "Wave 2 starting...";
         yield return new WaitForSeconds(waitStartTime);
 
         currWave = Wave.wave2;
         SoundManager.PlaySound(SoundManager.Sound.WaveStart);
         Spawn();
+        messageText.gameObject.SetActive(false);
         yield return new WaitForSeconds(wave2Time);
 
         currWave = Wave.none;
+        messageText.gameObject.SetActive(true);
+        messageText.text = "Wave 3 starting...";
         yield return new WaitForSeconds(waitStartTime);
 
         currWave = Wave.wave3;
         SoundManager.PlaySound(SoundManager.Sound.WaveStart);
         Spawn();
+        messageText.gameObject.SetActive(false);
         yield return new WaitForSeconds(wave3Time);
     }
 
