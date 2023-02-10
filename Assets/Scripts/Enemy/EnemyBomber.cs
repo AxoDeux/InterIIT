@@ -16,7 +16,8 @@ public class EnemyBomber : Enemy
     {
         timeScript = GetComponent<TimeBody>();
         followScript = GetComponent<EnemyFollow>();
-        player = followScript.target.gameObject;
+        //player = followScript.target.gameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
@@ -24,6 +25,8 @@ public class EnemyBomber : Enemy
         distance = player.transform.position - transform.position;
         if (distance.magnitude < explosionDist)
         {
+            Debug.Log("We explode");
+            //***
             StartCoroutine(Explode());
         }
     }
@@ -31,17 +34,15 @@ public class EnemyBomber : Enemy
     private IEnumerator Explode()
     {
         toxicZone.SetActive(true);
-        toxicZone.GetComponent<SpriteRenderer>().color = rndColor;
-        //enemyCircle.gameObject.SetActive(false);
+        //toxicZone.GetComponent<SpriteRenderer>().color = rndColor;
         gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         timeScript.enabled = false;
         followScript.enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
         toxicZone.GetComponent<Animator>().SetBool("shouldBlast", true);
-
+        //Debug.Log("We set the shouldblast true here");
         yield return new WaitForSeconds(5f);
-        toxicZone.SetActive(false);
         toxicZone.GetComponent<Animator>().SetBool("shouldBlast", false);
+        toxicZone.SetActive(false);
 
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);

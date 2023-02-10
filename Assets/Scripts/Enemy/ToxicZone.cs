@@ -11,8 +11,10 @@ public class ToxicZone : MonoBehaviour
     [SerializeField] private float damageInterval = 1f;
     private float currTime = 0f;
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject.CompareTag("Player")) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
             //deal infection
 
             //Slow player movement
@@ -20,20 +22,29 @@ public class ToxicZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision) {
-        if(collision.gameObject.CompareTag("Player")) {
-            if(currTime > damageInterval) {
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (currTime > damageInterval)
+            {
+                //******
                 ScoreManager.Instance.DealDamage(damage);
+                //****
                 PostProcessingManager.Instance.PlayerHurting();
                 currTime = 0f;
-            } else {
+            }
+            else
+            {
                 currTime += Time.deltaTime;
             }
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision) {
-        if(collision.gameObject.CompareTag("Player")) {
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
             PlayerEnterToxicZoneEvent.Invoke(false);
         }
     }
