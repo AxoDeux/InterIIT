@@ -22,6 +22,7 @@ public class HighScoreTable : MonoBehaviour
     private void Awake()
     {
         //PlayerPrefs.DeleteKey("highscoreTable");
+
         entryContainer = transform.Find("HighScoreEntryContainer");
         entryTemplate = entryContainer.Find("HighScoreEntryTemplate");
 
@@ -33,9 +34,9 @@ public class HighScoreTable : MonoBehaviour
         Debug.Log(PlayerPrefs.GetString("highscoreTable"));
         highScoreEntryList = new List<HighScoreEntry>()
         {
-        //new HighScoreEntry{ name = "sarvo", score = 1000},
-        new HighScoreEntry{ name = "ishan", score = 3000},
-        new HighScoreEntry{ name = "rahul", score = 2000},
+            //new HighScoreEntry{ name = "sarvo", score = 1000},
+            //new HighScoreEntry{ name = "ishan", score = 3000},
+            //new HighScoreEntry{ name = "rahul", score = 2000},
 
 
         };
@@ -81,9 +82,21 @@ public class HighScoreTable : MonoBehaviour
 
 
         highScoreEntryTransformList = new List<Transform>();
+        //if (highscores.highscoreEntryList.Count < 6)
+        int k = 0;
+
+
         foreach (HighScoreEntry highScoreEntry in highscores.highscoreEntryList)
         {
-            CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            if (k < 5)
+                CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            else
+            {
+                PlayerPrefs.DeleteKey("highscoreTable");
+
+                break;
+            }
+            ++k;
         }
 
 
@@ -130,10 +143,12 @@ public class HighScoreTable : MonoBehaviour
 
         bool entryPresent = false;
         //add new entry
-        foreach(var item in highscores.highscoreEntryList) {
+        foreach (var item in highscores.highscoreEntryList)
+        {
             //if name is present update it
-            if(item.name == name) {
-                if(score > item.score)
+            if (item.name == name)
+            {
+                if (score > item.score)
                     item.score = score;
                 entryPresent = true;
                 break;
