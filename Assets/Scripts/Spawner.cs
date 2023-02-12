@@ -133,6 +133,8 @@ public class Spawner : MonoBehaviour
         Spawn();
         messageText.gameObject.SetActive(false);
         yield return new WaitForSeconds(wave3Time);
+
+        spawnTime = 8;
     }
 
 }
