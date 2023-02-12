@@ -857,7 +857,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 122393891
   m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_Sprite: {fileID: -128608357, guid: 9474bb3f3f40cda4b9dc525e41698faf, type: 3}
   m_Color: {r: 0.47058827, g: 0.47058827, b: 0.47058827, a: 1}
   m_FlipX: 0
@@ -1327,7 +1327,7 @@ Transform:
   - {fileID: 7172598381390882333}
   - {fileID: 4412851832951246079}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6560471337790743285
 MonoBehaviour:
@@ -1345,6 +1345,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   rb: {fileID: 2455603563919733452}
   tr: {fileID: 6776489364009384185}
+  joystick: {fileID: 0}
   playerAnim: {fileID: 2358215193460582630}
   worldCanvas: {fileID: 4824079277707174105}
   light2D: {fileID: 7011600553062637808}

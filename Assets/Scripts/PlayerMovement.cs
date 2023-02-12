@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 mousePos;
     private Vector2 lookDir;
 
+    public FloatingJoystick joystick;
     private bool canDash = true;
     private bool isDashing = false;
     private float dashingPower = 20f;
@@ -53,8 +54,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashing) { return; }
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        //movement.x = Input.GetAxisRaw("Horizontal");
+        //movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = joystick.Horizontal;
+        movement.y = joystick.Vertical;
         if (movement.x == 0 && movement.y == 0) playerAnim.SetBool("isWalking", false);
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
