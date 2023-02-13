@@ -124,6 +124,8 @@ public class StoryBoardManager : MonoBehaviour {
 
         CloseScene(sceneNum);
         sceneNum = 1;
+        nextButton.SetActive(true);
+        backButton.SetActive(false);
         mainMenuCanvas.SetActive(true);
         this.gameObject.SetActive(false);
     }
