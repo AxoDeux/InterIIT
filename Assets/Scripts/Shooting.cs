@@ -21,7 +21,9 @@ public class Shooting : MonoBehaviour
 
     [SerializeField] private Image i_currWeapon;
     [SerializeField] private Image i_nextWeapon;
+    [SerializeField] private GameObject cursor;
     private float colorChangeTime = 3f;
+
 
     public enum ShootingMode
     {
@@ -66,8 +68,12 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetButton("Fire1"))
+        //if (Input.GetButton("Fire1"))
+        if (Input.touchCount > 1)
         {
+            Debug.Log("Touch count is greater than 0");
+            Touch touch = Input.GetTouch(1);
+            MoveCursor(touch);
             if (EventSystem.current.IsPointerOverGameObject()) return;
 
 
@@ -95,6 +101,14 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    void MoveCursor(Touch touch)
+    {
+        //cursor.transform.Translate(shootingJoystick.Horizontal * Time.deltaTime, shootingJoystick.Vertical * Time.deltaTime, 0);
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+        touchPosition.z = 0;
+        cursor.transform.position = touchPosition;
+    }
+
     private void Shoot()
     {
 
@@ -109,8 +123,8 @@ public class Shooting : MonoBehaviour
     private void RotateGun(ShootingMode mode)
     {
         //taking firePoint as common for both modes
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        aimDir = mousePos - new Vector2(firePoint.position.x, firePoint.position.y);
+        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        aimDir = new Vector2(cursor.transform.position.x, cursor.transform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y);
         aimDir.Normalize();
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
