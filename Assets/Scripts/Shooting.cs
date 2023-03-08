@@ -63,30 +63,23 @@ public class Shooting : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        RotateGun(shootingMode);
     }
     private void Update()
     {
 
         //if (Input.GetButton("Fire1"))
-        if (Input.touchCount > 1)
+        //{
+        //    if (EventSystem.current.IsPointerOverGameObject()) return;
+        //    BufferShoot();
+        //}
+        if (Input.touchCount == 1 && !GameManager.isMoving)
         {
             Debug.Log("Touch count is greater than 0");
-            Touch touch = Input.GetTouch(1);
+            Touch touch = Input.GetTouch(0);
             MoveCursor(touch);
+            RotateGun(shootingMode, touch);
             if (EventSystem.current.IsPointerOverGameObject()) return;
-
-
-            if (currTime > minTime)
-            {
-                if (shootingMode == ShootingMode.Single) { Shoot(); }
-                else if (shootingMode == ShootingMode.Dual) { DualShoot(); }
-                currTime = 0;
-            }
-            else
-            {
-                currTime += Time.deltaTime;
-            }
+            BufferShoot();
         }
 
         if (currTime_2 > colorChangeTime)
@@ -101,8 +94,23 @@ public class Shooting : MonoBehaviour
         }
     }
 
+    private void BufferShoot()
+    {
+        if (currTime > minTime)
+        {
+            if (shootingMode == ShootingMode.Single) { Shoot(); }
+            else if (shootingMode == ShootingMode.Dual) { DualShoot(); }
+            currTime = 0;
+        }
+        else
+        {
+            currTime += Time.deltaTime;
+        }
+    }
+
     void MoveCursor(Touch touch)
     {
+
         //cursor.transform.Translate(shootingJoystick.Horizontal * Time.deltaTime, shootingJoystick.Vertical * Time.deltaTime, 0);
         Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
         touchPosition.z = 0;
@@ -120,11 +128,13 @@ public class Shooting : MonoBehaviour
         SoundManager.PlaySound(SoundManager.Sound.shoot);
     }
 
-    private void RotateGun(ShootingMode mode)
+    private void RotateGun(ShootingMode mode, Touch touch)
     {
         //taking firePoint as common for both modes
         //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        aimDir = new Vector2(cursor.transform.position.x, cursor.transform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y);
+        //aimDir = new Vector2(cursor.transform.position.x, cursor.transform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y);
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+        aimDir = new Vector2(touchPosition.x, touchPosition.y) - new Vector2(firePoint.position.x, firePoint.position.y);
         aimDir.Normalize();
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
@@ -143,6 +153,7 @@ public class Shooting : MonoBehaviour
     private void ChangeGunRotation(GameObject go, float angle)
     {
         go.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        Debug.Log("We change fun rotation");
         if (angle < -90 || angle > 90)
         {
             if (aimDir.x < 0)

@@ -60,7 +60,11 @@ public class PlayerMovement : MonoBehaviour
         //movement.y = Input.GetAxisRaw("Vertical");
         movement.x = movementJoystick.Horizontal + Input.GetAxisRaw("Horizontal");
         movement.y = movementJoystick.Vertical + Input.GetAxisRaw("Vertical");
-        if (movement.x == 0 && movement.y == 0) playerAnim.SetBool("isWalking", false);
+        if (movement.x == 0 && movement.y == 0)
+        {
+            playerAnim.SetBool("isWalking", false);
+            GameManager.isMoving = false;
+        }
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetButtonDown("Dash") && canDash)
@@ -90,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer(float speed)
     {
         playerAnim.SetBool("isWalking", true);
+        GameManager.isMoving = true;
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 
