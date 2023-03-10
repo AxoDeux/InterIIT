@@ -121,7 +121,8 @@ public class StoryBoardManager : MonoBehaviour {
 
     public void OnClickMenu() {
         SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
-
+        nextButton.SetActive(true);
+        backButton.SetActive(false);
         CloseScene(sceneNum);
         sceneNum = 1;
         mainMenuCanvas.SetActive(true);

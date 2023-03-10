@@ -68,8 +68,8 @@ public class Shooting : MonoBehaviour
     private void Update()
     {
 
-        //if (Input.GetButton("Fire1"))
-        if (Input.touchCount > 1)
+        #region mobile inputs
+        if(Input.touchCount > 1)
         {
             Debug.Log("Touch count is greater than 0");
             Touch touch = Input.GetTouch(1);
@@ -88,8 +88,24 @@ public class Shooting : MonoBehaviour
                 currTime += Time.deltaTime;
             }
         }
+        #endregion
 
-        if (currTime_2 > colorChangeTime)
+        #region mouse inputs
+        if(Input.GetButton("Fire1")) {
+            if(EventSystem.current.IsPointerOverGameObject()) return;
+
+
+            if(currTime > minTime) {
+                if(shootingMode == ShootingMode.Single) { Shoot(); } else if(shootingMode == ShootingMode.Dual) { DualShoot(); }
+                currTime = 0;
+            } else {
+                currTime += Time.deltaTime;
+            }
+        }
+        #endregion
+
+
+        if(currTime_2 > colorChangeTime)
         {
             currTime_2 = 0;
             SetGunColour();

@@ -101,6 +101,10 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void OnClickClose() {
+        next.SetActive(true);
+        back.SetActive(false);
+        CloseInstruction(h2pNum);
+        h2pNum = 1;
         howToPlay.SetActive(false);
         SoundManager.PlaySound(SoundManager.Sound.UICloseButton);
     }
