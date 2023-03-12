@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,13 +16,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] private TrailRenderer tr;
+    [SerializeField] private Image dashImage;
 
     private Vector2 movement;
     private Vector2 mousePos;
     private Vector2 lookDir;
 
-    public FloatingJoystick movementJoystick;
-    //public FloatingJoystick shooT;
+    //public FloatingJoystick movementJoystick;
+    public FixedJoystick movementJoystick;
 
     private bool canDash = true;
     private bool isDashing = false;
@@ -56,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashing) { return; }
 
-        //movement.x = Input.GetAxisRaw("Horizontal");
-        //movement.y = Input.GetAxisRaw("Vertical");
         movement.x = movementJoystick.Horizontal + Input.GetAxisRaw("Horizontal");
         movement.y = movementJoystick.Vertical + Input.GetAxisRaw("Vertical");
         if (movement.x == 0 && movement.y == 0) playerAnim.SetBool("isWalking", false);
@@ -99,14 +99,22 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         tr.emitting = true;
         light2D.intensity = Mathf.Lerp(1, 0, dashingTime);
+        dashImage.fillAmount = Mathf.Lerp(1, 0, dashingTime);
         yield return new WaitForSeconds(dashingTime);
 
         tr.emitting = false;
         isDashing = false;
+        dashImage.GetComponent<Button>().interactable = false;
         light2D.intensity = Mathf.Lerp(0, 1, dashingCooldown);
-        yield return new WaitForSeconds(dashingCooldown);
+        dashImage.fillAmount = Mathf.Lerp(0, 1, dashingCooldown);
+        yield return new WaitForSeconds(dashingCooldown); 
 
         canDash = true;
+        dashImage.GetComponent<Button>().interactable = true;
+    }
+
+    public void DashClicked() {
+        StartCoroutine(Dash());
     }
 
     public void HandleToxicZoneEffect(bool isInToxicZone)
@@ -119,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             speed = tmpSpeed;
-
         }
     }
 

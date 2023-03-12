@@ -24,6 +24,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] private GameObject cursor;
     private float colorChangeTime = 3f;
 
+    public FixedJoystick shootingJoystick;
+
 
     public enum ShootingMode
     {
@@ -69,14 +71,8 @@ public class Shooting : MonoBehaviour
     {
 
         #region mobile inputs
-        if(Input.touchCount > 1)
+        if(shootingJoystick.Direction != Vector2.zero)
         {
-            Debug.Log("Touch count is greater than 0");
-            Touch touch = Input.GetTouch(1);
-            MoveCursor(touch);
-            if (EventSystem.current.IsPointerOverGameObject()) return;
-
-
             if (currTime > minTime)
             {
                 if (shootingMode == ShootingMode.Single) { Shoot(); }
@@ -89,21 +85,6 @@ public class Shooting : MonoBehaviour
             }
         }
         #endregion
-
-        #region mouse inputs
-        if(Input.GetButton("Fire1")) {
-            if(EventSystem.current.IsPointerOverGameObject()) return;
-
-
-            if(currTime > minTime) {
-                if(shootingMode == ShootingMode.Single) { Shoot(); } else if(shootingMode == ShootingMode.Dual) { DualShoot(); }
-                currTime = 0;
-            } else {
-                currTime += Time.deltaTime;
-            }
-        }
-        #endregion
-
 
         if(currTime_2 > colorChangeTime)
         {
@@ -138,10 +119,7 @@ public class Shooting : MonoBehaviour
 
     private void RotateGun(ShootingMode mode)
     {
-        //taking firePoint as common for both modes
-        //mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        aimDir = new Vector2(cursor.transform.position.x, cursor.transform.position.y) - new Vector2(firePoint.position.x, firePoint.position.y);
-        aimDir.Normalize();
+        aimDir = shootingJoystick.Direction.normalized;
         float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
         if (mode == ShootingMode.Single)
