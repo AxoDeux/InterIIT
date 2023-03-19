@@ -1675,6 +1675,17 @@ Transform:
   m_Father: {fileID: 604378435}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &333566514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3364353254966070458, guid: a724b2c54c0f51a4381f01a1c1f2b073, type: 3}
+  m_PrefabInstance: {fileID: 6560471338138625099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &334076038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2610,8 +2621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
-  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  DefaultPosInfluence: {x: 0.05, y: 0.05, z: 0.05}
+  DefaultRotInfluence: {x: 0.5, y: 0.5, z: 0.5}
   RestPositionOffset: {x: 0, y: 0, z: 0}
   RestRotationOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &523725872 stripped
@@ -6532,6 +6543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunSprite: {fileID: 968662719}
+  _rewindButton: {fileID: 333566514}
   circleColorUI: {fileID: 0}
 --- !u!4 &1446781559
 Transform:

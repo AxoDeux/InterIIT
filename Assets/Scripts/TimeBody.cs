@@ -6,6 +6,8 @@ public class TimeBody : MonoBehaviour
 {
 
     bool isRewinding = false;
+    bool rewindKeyPressed = false;
+    bool hasJustStoppedRewinding = false;
     public static bool isRewindCalled = false;
     public static bool isStartRewindCalled = false;
     public static bool isStopRewindCalled = false;
@@ -23,12 +25,20 @@ public class TimeBody : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void OnEnable() {
+        RewindButton.RewindEvent += HandleRewindTime;
+    }
+
+    private void OnDisable() {
+        RewindButton.RewindEvent -= HandleRewindTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameManager.canRewind)
+        if (rewindKeyPressed && GameManager.canRewind)
             StartRewind();
-        if(Input.GetKeyUp(KeyCode.E)) {
+        if(hasJustStoppedRewinding && isRewinding) {
             StopRewind();
             isRewindCalled = false;
             isStopRewindCalled = false;
@@ -56,7 +66,6 @@ public class TimeBody : MonoBehaviour
             if(!isRewindCalled) {
                 SoundManager.PlaySound(SoundManager.Sound.timeRewind);
                 isRewindCalled = true;
-                Debug.Log("Rewind called");
             }
         }
         else
@@ -93,6 +102,7 @@ public class TimeBody : MonoBehaviour
     {
         isRewinding = false;
         GameManager.canRewind = false;
+        GameManager.SetRewindButtonStatus(false);
         GameManager.isRewinding = false;
 
         if(!isStopRewindCalled) {
@@ -105,57 +115,17 @@ public class TimeBody : MonoBehaviour
         
 
     }
+
+    private void HandleRewindTime() {
+        rewindKeyPressed = !rewindKeyPressed;
+        if(!rewindKeyPressed) {
+            hasJustStoppedRewinding = true;
+            StartCoroutine(ResetRewindingBool());
+        }
+    }
+
+    private IEnumerator ResetRewindingBool() {
+        yield return new WaitForSeconds(0.1f);
+        hasJustStoppedRewinding = false;
+    }
 }
-//using System;
-//using System.Collections;
-//using System.Collections.Generic;
-//using System.Linq;
-//using Unity.VisualScripting;
-//using UnityEngine;
-//using UnityEngine.UIElements;
-
-//public class TimeBody : MonoBehaviour
-//{
-//    //isRewinding = false;
-//    List<TimeStamp> positions;
-
-//    public float rewindTime = GameManager.rewindTime;
-//    private void Start()
-//    {
-//        positions = new List<TimeStamp>();
-//    }
-
-//    private void FixedUpdate()
-//    {
-//        Debug.Log("Number in list " + positions.Count);
-//        if (GameManager.isRewinding)
-//            Rewind();
-//        else
-//            Record();
-//    }
-//    void Rewind()
-//    {
-//        if (positions.Count > 0)
-//        {
-//            transform.position = positions[0].position;
-//            transform.rotation = positions[0].rotation;
-//            positions.RemoveAt(0);
-
-//        }
-//        else
-//        {
-//            GameManager.StopRewind();
-//        }
-//    }
-//    void Record()
-//    {
-//        if (positions.Count > Mathf.Round(GameManager.rewindTime * (1 / Time.fixedDeltaTime)))
-//        {
-//            positions.RemoveAt(positions.Count - 1);
-//        }
-//        //inserting positions from the top position of the enemies
-//        positions.Insert(0, new TimeStamp(transform.position, transform.rotation));
-//    }
-
-
-//}

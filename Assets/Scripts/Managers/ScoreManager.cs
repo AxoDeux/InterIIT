@@ -81,10 +81,12 @@ public class ScoreManager : MonoBehaviour
         if (i_timeBattery.fillAmount >= 1f)
         {
             GameManager.canRewind = true;
+            GameManager.SetRewindButtonStatus(true);
         }
         else if (i_timeBattery.fillAmount == 0f)
         {
             GameManager.canRewind = false;
+            GameManager.SetRewindButtonStatus(false);
         }
     }
 

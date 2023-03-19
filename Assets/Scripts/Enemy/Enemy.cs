@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyType type;
 
     public Color rndColor;
-    Transform player;
+    Transform _player;
 
     public void Start()
     {
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
             GameManager.SetColor(sprite, rndColor, null);
         }
         hitCount = 0;
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
     }
     public EnemyType GetEnemyType()
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
     }
 
@@ -49,12 +49,7 @@ public class Enemy : MonoBehaviour
         SpriteRenderer bullet = collision.gameObject.GetComponentInChildren<SpriteRenderer>();
         if (enemyColoredParts.Length > 0 && collision.gameObject.CompareTag("Bullet") && (enemyColoredParts[0].color == bullet.color))
         {
-            //Debug.Log(collision.gameObject.name + "Hit us");
-            //Debug.Log("We hit");
             hitCount++;
-            //float angle = Mathf.Atan2((player.position.y - transform.position.y), (player.position.x - transform.position.x)) * Mathf.Rad2Deg;
-            //Instantiate(splashEffect, transform.position, Quaternion.Euler(0, 0, angle));
-            // Get the collision point and normal
             Vector2 collisionPoint = collision.GetContact(0).point;
             Vector2 collisionNormal = collision.GetContact(0).normal;
 

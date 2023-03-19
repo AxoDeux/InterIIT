@@ -11,6 +11,9 @@ public class MenuButtons : MonoBehaviour
 
     [SerializeField] private MainMenuManager.MenuButtonType buttonType;
 
+    private void Awake() {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
     private void Start()
     {
         hitCount = 0;

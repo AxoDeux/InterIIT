@@ -42,7 +42,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnDestroyButton(MenuButtonType type)
     {
-        switch (type)
+        switch(type)
         {
             case MenuButtonType.start:
                 SceneManager.LoadScene(1);

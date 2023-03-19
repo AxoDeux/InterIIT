@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 };
     [SerializeField]
     SpriteRenderer gunSprite;
+    [SerializeField] private Button _rewindButton;
+    public static Button rewindButton;
+    
 
     //time of effects
     public static float lifetime = 1f;
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("Color change time of the gun")]
     public static float colorChangeTime = 3f;
     //public static float rewindTime = 10f;
+
     public static bool isRewinding = false;
     public static bool canRewind;
 
@@ -41,7 +45,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        rewindButton = _rewindButton;
         canRewind = false;
+        SetRewindButtonStatus(false);
         //isRewinding = false;
     }
 
@@ -84,4 +90,8 @@ public class GameManager : MonoBehaviour
         return GameManager.colorCode[rnd];
     }
 
+    public static void SetRewindButtonStatus(bool status) {
+        if(!rewindButton) return;
+        rewindButton.interactable = status;
+    }
 }
